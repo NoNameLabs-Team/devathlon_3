@@ -66,9 +66,9 @@ public class FelSpell implements Spell{
             }
         }
 		
-		for(int x = p.getLocation().getBlockX() - (12 + Util.RANDOM.nextInt(4)); x < p.getLocation().getBlockX() + 12 + + Util.RANDOM.nextInt(15); x++){
-			for(int y = p.getLocation().getBlockY() - (12 + Util.RANDOM.nextInt(12)); y < p.getLocation().getBlockY() + 12 + Util.RANDOM.nextInt(8); y++){
-				for(int z = p.getLocation().getBlockZ() - (12 + + Util.RANDOM.nextInt(2)); z < p.getLocation().getBlockZ() + 12 + + Util.RANDOM.nextInt(12); z++){
+		for(int x = p.getLocation().getBlockX() - (6 + Util.RANDOM.nextInt(8)); x < p.getLocation().getBlockX() + 6 + + Util.RANDOM.nextInt(8); x++){
+			for(int y = p.getLocation().getBlockY() - (6 + Util.RANDOM.nextInt(8)); y < p.getLocation().getBlockY() + 6 + Util.RANDOM.nextInt(8); y++){
+				for(int z = p.getLocation().getBlockZ() - (6 + + Util.RANDOM.nextInt(8)); z < p.getLocation().getBlockZ() + 6 + + Util.RANDOM.nextInt(8); z++){
 					
 					if(Util.distance(x, y, z, p.getLocation().getBlockX(), p.getLocation().getBlockY(), p.getLocation().getBlockZ()) <= 6.0 + Util.RANDOM.nextInt(8)){
 						Block b = p.getLocation().getWorld().getBlockAt(x, y, z);
