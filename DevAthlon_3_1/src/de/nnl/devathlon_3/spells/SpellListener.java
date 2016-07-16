@@ -6,11 +6,14 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
+import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
 import de.nnl.devathlon_3.util.RecipeUtil;
 import de.nnl.devathlon_3.util.SpellUtil;
+import de.nnl.devathlon_3.util.Util;
 
 public class SpellListener implements Listener {
 	
@@ -54,6 +57,24 @@ public class SpellListener implements Listener {
 		if (i != null && i.getType() == Material.BOOK && i.equals(RecipeUtil.createRecipeBook())) {
 			e.setCancelled(true);
 			p.openInventory(RecipeUtil.createRecipeInventory(spellHandler));
+		}
+	}
+	
+	@EventHandler
+	public void onPlayerInventoryClick(InventoryClickEvent event) {
+		Inventory inv = event.getInventory();
+		ItemStack item = event.getCurrentItem();
+		
+		if (item != null && inv.getName().equals("Rezepte")) {
+			event.setCancelled(true);
+			
+			int currpage = Integer.valueOf(inv.getItem(8).getItemMeta().getDisplayName().split(" ")[0]);
+			
+			if (item.equals(Util.createItemStack(Material.GLOWSTONE_DUST, 1, "Vorherige Seite"))) {
+				RecipeUtil.applyRecipePageToInventory(spellHandler, currpage + 1, inv);
+			} else if (item.equals(Util.createItemStack(Material.GLOWSTONE_DUST, 1, "Nächste Seite"))) {
+				RecipeUtil.applyRecipePageToInventory(spellHandler, currpage - 1, inv);
+			}
 		}
 	}
 }

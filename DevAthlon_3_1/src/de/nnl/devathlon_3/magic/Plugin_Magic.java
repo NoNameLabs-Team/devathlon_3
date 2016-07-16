@@ -11,6 +11,7 @@ import de.nnl.devathlon_3.spellbook.CakeSpell;
 import de.nnl.devathlon_3.spellbook.HealSpell_LV1;
 import de.nnl.devathlon_3.spellbook.LightSpell;
 import de.nnl.devathlon_3.spellbook.SpeedSpell;
+import de.nnl.devathlon_3.spellbook.TeleportSpell;
 import de.nnl.devathlon_3.spells.SpellHandler;
 import de.nnl.devathlon_3.spells.SpellListener;
 import de.nnl.devathlon_3.util.RecipeUtil;
@@ -28,6 +29,7 @@ public class Plugin_Magic extends JavaPlugin{
 		spellHandler.addSpell(new SpeedSpell());
 		spellHandler.addSpell(new LightSpell());
 		spellHandler.addSpell(new HealSpell_LV1());
+		spellHandler.addSpell(new TeleportSpell());
 		
 		spellListener = new SpellListener(spellHandler);
 		Bukkit.getPluginManager().registerEvents(spellListener, this);
