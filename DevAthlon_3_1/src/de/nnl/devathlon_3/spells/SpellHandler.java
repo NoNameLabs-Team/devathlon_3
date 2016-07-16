@@ -28,19 +28,29 @@ public class SpellHandler {
 	}
 	
 	public Spell getSpell(ItemStack i) {
-		return spells.get(i);
+		try {
+			ItemStack i2 = i.clone();
+			i2.setAmount(1);
+			
+			return spells.get(i2);
+		} catch (Exception e) {}
+		
+		return null;
 	}
 	
 	public ItemStack getItem(Spell s) {
-		for(ItemStack i: spells.keySet()){
-			if(spells.get(i).equals(s))return i;
-		}
+		try {
+			for(ItemStack i: spells.keySet()){
+				if(spells.get(i).equals(s)) return i;
+			}
+		} catch(Exception e) {}
+		
 		return null;
 	}
 	
 	public void removeSpell(Spell s) {
 		for(ItemStack i: spells.keySet()){
-			if(spells.get(i).equals(s))spells.remove(i);
+			if(spells.get(i).equals(s)) spells.remove(i);
 		}
 	}
 	
@@ -76,6 +86,7 @@ public class SpellHandler {
 		List<String> lore_list = im.getLore();
 		lore_list.clear();
 		lore_list.add(ChatColor.LIGHT_PURPLE + s.getLore());
+		lore_list.add(ChatColor.GREEN + "Exp Cost: " + s.getExpCost());
 		
 		im.setLore(lore_list);
 		is.setItemMeta(im);
