@@ -49,7 +49,7 @@ public class FelSpell implements Spell{
 		
 		for(Entity entity : p.getWorld().getEntities()){
             if(entity instanceof LivingEntity){
-            	if(!(entity instanceof Player) && !(entity instanceof EnderDragon) && !(entity instanceof Wither))if(Util.distance(p.getLocation().getBlockX(), p.getLocation().getBlockY(), p.getLocation().getBlockY(), entity.getLocation().getBlockX(), entity.getLocation().getBlockY(), entity.getLocation().getBlockZ()) <= 12.0)((LivingEntity) entity).setHealth(0);
+            	if(!(entity instanceof Player) && !(entity instanceof EnderDragon) && !(entity instanceof Wither))if(Util.distance(p.getLocation().getBlockX(), p.getLocation().getBlockY(), p.getLocation().getBlockZ(), entity.getLocation().getBlockX(), entity.getLocation().getBlockY(), entity.getLocation().getBlockZ()) <= 12.0)((LivingEntity) entity).setHealth(0);
             }
         }
 		
@@ -59,7 +59,10 @@ public class FelSpell implements Spell{
 					
 					Block b = p.getLocation().getWorld().getBlockAt(x, y, z);
 					
-					if(b.getType() == Material.GRASS)b.setData((byte)(2));
+					if(b.getType() == Material.GRASS){
+						b.setType(Material.DIRT);
+						b.setData((byte)(2));
+					}
 					else if(b.getType() == Material.DIRT)b.setData((byte) 1);
 					else if(b.getType() == Material.SAPLING || b.getType() == Material.YELLOW_FLOWER|| b.getType() == Material.RED_ROSE|| b.getType() == Material.YELLOW_FLOWER)b.setType(Material.DEAD_BUSH);
 					else if(b.getType() == Material.DOUBLE_PLANT)b.setData((byte) 3);
