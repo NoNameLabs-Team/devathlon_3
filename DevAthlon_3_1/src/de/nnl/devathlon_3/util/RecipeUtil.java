@@ -51,7 +51,7 @@ public class RecipeUtil {
 		bm.setLore(lore);
 		
 		book.setItemMeta(bm);
-		
+		ItemUtil.addEnchantedEffect(book);
 		return book;
 	}
 	
@@ -67,15 +67,15 @@ public class RecipeUtil {
 		List<ShapedRecipe> recipes = sp.getRecipes();
 		if (recipes.size()+1 > page) {
 			
-			inv.setItem(8, Util.createItemStack(Material.REDSTONE, 1, page + " / " + (recipes.size())));
+			inv.setItem(8, ItemUtil.createItemStack(Material.REDSTONE, 1, page + " / " + (recipes.size())));
 			if (recipes.size() > page){
-				inv.setItem(26, Util.createItemStack(Material.GLOWSTONE_DUST, 1, "Nächste Seite"));
+				inv.setItem(26, ItemUtil.createItemStack(Material.GLOWSTONE_DUST, 1, "Nächste Seite"));
 			} else {
 				inv.setItem(26, new ItemStack(Material.AIR));
 			}
 			
 			if (1 < page) {
-				inv.setItem(25, Util.createItemStack(Material.GLOWSTONE_DUST, 1, "Vorherige Seite"));
+				inv.setItem(25, ItemUtil.createItemStack(Material.GLOWSTONE_DUST, 1, "Vorherige Seite"));
 			} else {
 				inv.setItem(25, new ItemStack(Material.AIR));
 			}

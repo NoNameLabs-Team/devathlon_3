@@ -14,7 +14,6 @@ public class TeleportSpell implements Spell{
 	public TeleportSpell(){
 		
 	}
-	//DA
 	
 	@SuppressWarnings("deprecation")
 	@Override
@@ -36,7 +35,7 @@ public class TeleportSpell implements Spell{
 	
 	@Override
 	public String getLore() {
-		return "Teleports you to the location you are looking at";
+		return "Teleportiert dich an die Stelle an die du guckst!";
 	}
 	
 	@Override

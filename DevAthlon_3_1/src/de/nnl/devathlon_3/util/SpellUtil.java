@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
-import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
@@ -23,7 +22,8 @@ public class SpellUtil {
 		
 		im.setLore(lore_list);
 		is.setItemMeta(im);
-		is.addUnsafeEnchantment(Enchantment.DURABILITY, 1);
+		
+		ItemUtil.addEnchantedEffect(is);
 		
 		return is;
 	}

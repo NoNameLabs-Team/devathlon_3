@@ -12,8 +12,8 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
+import de.nnl.devathlon_3.util.ItemUtil;
 import de.nnl.devathlon_3.util.RecipeUtil;
-import de.nnl.devathlon_3.util.Util;
 
 public class SpellListener implements Listener {
 	
@@ -72,12 +72,12 @@ public class SpellListener implements Listener {
 			
 			if(event.getSlot() == 13 && event.getWhoClicked().getGameMode() == GameMode.CREATIVE){
 				
-				event.getWhoClicked().getInventory().addItem(event.getClickedInventory().getItem(13));
+				event.getWhoClicked().getInventory().addItem(inv.getItem(13));
 			}
 			
-			if (item.equals(Util.createItemStack(Material.GLOWSTONE_DUST, 1, "Vorherige Seite"))) {
+			if (item.equals(ItemUtil.createItemStack(Material.GLOWSTONE_DUST, 1, "Vorherige Seite"))) {
 				RecipeUtil.applyRecipePageToInventory(spellHandler, currpage - 1, inv);
-			} else if (item.equals(Util.createItemStack(Material.GLOWSTONE_DUST, 1, "Nächste Seite"))) {
+			} else if (item.equals(ItemUtil.createItemStack(Material.GLOWSTONE_DUST, 1, "Nächste Seite"))) {
 				RecipeUtil.applyRecipePageToInventory(spellHandler, currpage + 1, inv);
 			}
 		}
