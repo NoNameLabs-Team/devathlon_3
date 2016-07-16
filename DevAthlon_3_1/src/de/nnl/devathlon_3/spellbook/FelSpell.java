@@ -52,7 +52,7 @@ public class FelSpell implements Spell{
 	public boolean onRightClick(Player p) {
 		
 		
-		p.getWorld().playSound(p.getLocation(), Sound.ENTITY_WITHER_DEATH, 0.35f, 1.0f);
+		p.getWorld().playSound(p.getLocation(), Sound.ENTITY_WITHER_DEATH, 0.35f, 0.5f);
 		p.addPotionEffect(new PotionEffect(PotionEffectType.WEAKNESS, 20 * 210, 3));
 		
 		for(Entity entity : p.getWorld().getEntities()){
@@ -71,7 +71,7 @@ public class FelSpell implements Spell{
 					if(Util.distance(x, y, z, p.getLocation().getBlockX(), p.getLocation().getBlockY(), p.getLocation().getBlockZ()) <= 6.0 + Util.RANDOM.nextInt(8)){
 						Block b = p.getLocation().getWorld().getBlockAt(x, y, z);
 						
-						p.getWorld().spigot().playEffect(p.getLocation(), Effect.HAPPY_VILLAGER);
+						b.getWorld().spigot().playEffect(p.getLocation(), Effect.HAPPY_VILLAGER);
 						
 						if(b.getType() == Material.GRASS){
 							b.setType(Material.DIRT);
