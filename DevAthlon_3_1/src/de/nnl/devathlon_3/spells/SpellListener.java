@@ -1,5 +1,6 @@
 package de.nnl.devathlon_3.spells;
 
+import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
@@ -34,7 +35,7 @@ public class SpellListener implements Listener {
 				e.setCancelled(true);
 				
 				if (s.getManaCost() <= p.getLevel()) {
-					p.setLevel(p.getLevel() - s.getManaCost());
+					if(p.getGameMode() != GameMode.CREATIVE)p.setLevel(p.getLevel() - s.getManaCost());
 					
 					if (!s.isReusable()) {
 						if (i.getAmount() == 1) {
@@ -68,6 +69,10 @@ public class SpellListener implements Listener {
 			event.setCancelled(true);
 			
 			int currpage = Integer.valueOf(inv.getItem(8).getItemMeta().getDisplayName().split(" ")[0]);
+			
+			if(event.getSlot() == 13 && event.getWhoClicked().getGameMode() == GameMode.CREATIVE){
+				event.getWhoClicked().getInventory().addItem(RecipeUtil.createRecipeInventory(spellHandler).getItem(13));
+			}
 			
 			if (item.equals(Util.createItemStack(Material.GLOWSTONE_DUST, 1, "Vorherige Seite"))) {
 				RecipeUtil.applyRecipePageToInventory(spellHandler, currpage - 1, inv);
