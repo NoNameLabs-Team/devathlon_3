@@ -46,7 +46,7 @@ public class LogSpell implements Spell{
 	public boolean onRightClick(Player p) {
 		Block b = p.getTargetBlock((HashSet<Byte>)null, 3);
 		
-		if(b.getType() != Material.LOG || b.getType() != Material.LOG_2)return false;
+		if(b.getType() != Material.LOG && b.getType() != Material.LOG_2)return false;
 		else{
 		
 			List<Block> logs = new ArrayList<>();
