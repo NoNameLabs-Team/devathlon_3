@@ -40,16 +40,11 @@ public class SpellListener implements Listener {
 				if (manaHandler.useSpell(s, p)) {
 					if (s.onRightClick(p)) {
 						if (!s.isReusable()) {
-							if (i.getAmount() == 1) {
-								
-								for(int i2 = 0; i2 < 9; i2 ++){
-									if(p.getInventory().getItem(i2).equals(i)){
-										p.getInventory().remove(i2);
-									}
-								}
-								
+							if (i.getAmount() > 1) {
+							    i.setAmount(i.getAmount() - 1);
+							    p.setItemInHand(i);
 							} else {
-								i.setAmount(i.getAmount() - 1);
+							    p.setItemInHand(new ItemStack(Material.AIR));
 							}
 						}
 						
