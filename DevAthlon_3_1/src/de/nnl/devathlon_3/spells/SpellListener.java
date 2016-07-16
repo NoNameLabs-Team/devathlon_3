@@ -40,13 +40,13 @@ public class SpellListener implements Listener {
 					
 					if (!s.isReusable()) {
 						if (i.getAmount() == 1) {
-							//TODO: REMOVE ITEM
+							p.getInventory().remove(i);
 						} else {
 							i.setAmount(i.getAmount() - 1);
 						}
 					}
 					
-					//TODO: BETTER SOUND!w
+					//TODO: BETTER SOUND!
 					p.playSound(p.getLocation(), Sound.BLOCK_NOTE_HAT, 0.5f, 0.5f);
 					s.onRightClick(p);
 				} else {
