@@ -50,10 +50,11 @@ public class Plugin_Magic extends JavaPlugin{
 		if (sender instanceof Player) {
 			Player p = (Player) sender;
 			
-			if (p.isOp() && commandlabel.equalsIgnoreCase("rezepte")) {
+			if (p.hasPermission("magic.recipes") && commandlabel.equalsIgnoreCase("rezepte")) {
 				p.getInventory().addItem(RecipeUtil.createRecipeBook());
 				return true;
-			} else if (p.isOp() && commandlabel.equalsIgnoreCase("mana")) {
+			} else if (p.hasPermission("magic.mana") && commandlabel.equalsIgnoreCase("mana")) {
+				if(args.length < 1) return false;
 				manaHandler.addMaximumMana(p, Integer.valueOf(args[0]));
 				return true;
 			}
