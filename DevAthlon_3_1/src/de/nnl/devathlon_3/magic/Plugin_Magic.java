@@ -10,9 +10,11 @@ import org.bukkit.plugin.java.JavaPlugin;
 import de.nnl.devathlon_3.mana.ManaHandler;
 import de.nnl.devathlon_3.spellbook.CakeSpell;
 import de.nnl.devathlon_3.spellbook.FireSpell;
+import de.nnl.devathlon_3.spellbook.LevelToManaSpell;
+import de.nnl.devathlon_3.spellbook.ManaSpell;
 import de.nnl.devathlon_3.spellbook.TeleportSpell;
 import de.nnl.devathlon_3.spellbook.TreeSpell;
-import de.nnl.devathlon_3.spellbook.WaterSpell;
+import de.nnl.devathlon_3.spellbook.SnowSpell;
 import de.nnl.devathlon_3.spells.SpellHandler;
 import de.nnl.devathlon_3.spells.SpellListener;
 import de.nnl.devathlon_3.util.RecipeUtil;
@@ -31,7 +33,9 @@ public class Plugin_Magic extends JavaPlugin{
 		spellHandler.addSpell(new TeleportSpell());
 		spellHandler.addSpell(new TreeSpell());
 		spellHandler.addSpell(new FireSpell());
-		spellHandler.addSpell(new WaterSpell());
+		spellHandler.addSpell(new SnowSpell());
+		spellHandler.addSpell(new LevelToManaSpell(manaHandler));
+		spellHandler.addSpell(new ManaSpell(manaHandler));
 		
 		spellListener = new SpellListener(spellHandler, manaHandler);
 		Bukkit.getPluginManager().registerEvents(spellListener, this);
