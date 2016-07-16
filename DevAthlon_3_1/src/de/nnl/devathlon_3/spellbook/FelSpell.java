@@ -60,7 +60,7 @@ public class FelSpell implements Spell{
             if(entity instanceof LivingEntity){
             	if(!(entity instanceof Player) && !(entity instanceof EnderDragon) && !(entity instanceof Wither)) {
             		if(Util.distance(p.getLocation().getBlockX(), p.getLocation().getBlockY(), p.getLocation().getBlockZ(), entity.getLocation().getBlockX(), entity.getLocation().getBlockY(), entity.getLocation().getBlockZ()) <= 12.0) {
-                		p.getWorld().spigot().playEffect(entity.getLocation(), Effect.HAPPY_VILLAGER, 1, 0, 0, 0, 0, 2, 10, 2);
+                		p.getWorld().spigot().playEffect(entity.getLocation(), Effect.HAPPY_VILLAGER, 1, 0, 0, 0, 0, 0.1f, 10, 2);
                 		((LivingEntity) entity).setHealth(0);
                 	}
             	}
@@ -75,7 +75,7 @@ public class FelSpell implements Spell{
 						Block b = p.getLocation().getWorld().getBlockAt(x, y, z);
 						
 						if(b.getType() != Material.AIR){
-							p.getWorld().spigot().playEffect(new Location(b.getWorld(), b.getLocation().getX(), b.getLocation().getY() + 1, b.getLocation().getZ()), Effect.HAPPY_VILLAGER, 1, 0, 0, 0, 0, 2, 10, 2);
+							p.getWorld().spigot().playEffect(new Location(b.getWorld(), b.getLocation().getX(), b.getLocation().getY() + 1, b.getLocation().getZ()), Effect.HAPPY_VILLAGER, 1, 0, 0, 0, 0, 0.1f, 10, 2);
 						
 							if(b.getType() == Material.GRASS){
 								b.setType(Material.DIRT);
