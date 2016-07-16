@@ -132,7 +132,7 @@ public class ManaHandler implements Listener {
 		sendManaBar(p, mana.get(p.getName()), max_mana.get(p.getName()));
 	}
 	
-	public static void sendManaBar(Player player, int mana, int max_mana){
+	public static void sendManaBar(Player player, int mana, int max_mana) {
         CraftPlayer p = (CraftPlayer) player;
         
         String text = ChatColor.AQUA + "" + mana + " [" + ChatColor.RED;

@@ -52,14 +52,16 @@ public class FelSpell implements Spell{
 	public boolean onRightClick(Player p) {
 		
 		
-		p.getWorld().playSound(p.getLocation(), Sound.ENTITY_WITHER_DEATH, 0.35f, 0.5f);
+		p.getWorld().playSound(p.getLocation(), Sound.ENTITY_WITHER_DEATH, 0.5f, 0.5f);
 		p.addPotionEffect(new PotionEffect(PotionEffectType.WEAKNESS, 20 * 210, 3));
 		
 		for(Entity entity : p.getWorld().getEntities()){
             if(entity instanceof LivingEntity){
-            	if(!(entity instanceof Player) && !(entity instanceof EnderDragon) && !(entity instanceof Wither))if(Util.distance(p.getLocation().getBlockX(), p.getLocation().getBlockY(), p.getLocation().getBlockZ(), entity.getLocation().getBlockX(), entity.getLocation().getBlockY(), entity.getLocation().getBlockZ()) <= 12.0){
-            		p.getWorld().spigot().playEffect(entity.getLocation(), Effect.HAPPY_VILLAGER);
-            		((LivingEntity) entity).setHealth(0);
+            	if(!(entity instanceof Player) && !(entity instanceof EnderDragon) && !(entity instanceof Wither)) {
+            		if(Util.distance(p.getLocation().getBlockX(), p.getLocation().getBlockY(), p.getLocation().getBlockZ(), entity.getLocation().getBlockX(), entity.getLocation().getBlockY(), entity.getLocation().getBlockZ()) <= 12.0) {
+                		p.getWorld().spigot().playEffect(entity.getLocation(), Effect.HAPPY_VILLAGER, 1, 0, 0, 0, 0, 2, 10, 2);
+                		((LivingEntity) entity).setHealth(0);
+                	}
             	}
             }
         }
@@ -71,7 +73,7 @@ public class FelSpell implements Spell{
 					if(Util.distance(x, y, z, p.getLocation().getBlockX(), p.getLocation().getBlockY(), p.getLocation().getBlockZ()) <= 6.0 + Util.RANDOM.nextInt(8)){
 						Block b = p.getLocation().getWorld().getBlockAt(x, y, z);
 						
-						b.getWorld().spigot().playEffect(p.getLocation(), Effect.HAPPY_VILLAGER);
+						p.getWorld().spigot().playEffect(p.getLocation(), Effect.HAPPY_VILLAGER, 1, 0, 0, 0, 0, 2, 10, 2);
 						
 						if(b.getType() == Material.GRASS){
 							b.setType(Material.DIRT);
