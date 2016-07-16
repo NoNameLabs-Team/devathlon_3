@@ -45,7 +45,7 @@ public class ColorSwap implements Spell{
 		for(Entity entity : p.getWorld().getEntities()){
             if(entity instanceof Sheep){
             	if(Util.distance(p.getLocation().getBlockX(), p.getLocation().getBlockY(), p.getLocation().getBlockZ(), entity.getLocation().getBlockX(), entity.getLocation().getBlockY(), entity.getLocation().getBlockZ()) <= 12.0){
-            		p.getWorld().spigot().playEffect(entity.getLocation(), Effect.COLOURED_DUST, 1, 0, 0, 0, 0, 0.1f, 10, 2);
+            		p.getWorld().spigot().playEffect(entity.getLocation(), Effect.COLOURED_DUST, 1, 0, 0.5f, 0.5f, 0.5f, 0.1f, 10, 2);
             		((Sheep) entity).setColor(Util.randomDyeColor());
             	}
             }
