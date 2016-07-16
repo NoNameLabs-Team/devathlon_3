@@ -3,6 +3,7 @@ package de.nnl.devathlon_3.spellbook;
 import org.bukkit.ChatColor;
 import org.bukkit.Effect;
 import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.material.MaterialData;
@@ -41,6 +42,7 @@ public class SnowSpell implements Spell{
 	@Override
 	public boolean onRightClick(Player p) {
 		p.getWorld().playEffect(p.getLocation(), Effect.EXTINGUISH, 1);
+		p.getWorld().playSound(p.getLocation(), Sound.BLOCK_WATER_AMBIENT, 0.5f, 0.5f);
 		
 		for(int x = p.getLocation().getBlockX() - 4; x < p.getLocation().getBlockX() + 4; x++){
 			for(int y = p.getLocation().getBlockY() - 1; y < p.getLocation().getBlockY() + 1; y++){

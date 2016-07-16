@@ -52,7 +52,6 @@ public class FelSpell implements Spell{
 	@Override
 	public boolean onRightClick(Player p) {
 		
-		
 		p.getWorld().playSound(p.getLocation(), Sound.ENTITY_WITHER_DEATH, 0.5f, 0.5f);
 		p.addPotionEffect(new PotionEffect(PotionEffectType.WEAKNESS, 20 * 210, 3));
 		

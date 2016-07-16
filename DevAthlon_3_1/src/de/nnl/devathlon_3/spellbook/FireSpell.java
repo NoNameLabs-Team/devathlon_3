@@ -1,7 +1,9 @@
 package de.nnl.devathlon_3.spellbook;
 
 import org.bukkit.ChatColor;
+import org.bukkit.Effect;
 import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.material.MaterialData;
@@ -43,6 +45,8 @@ public class FireSpell implements Spell{
 
 	@Override
 	public boolean onRightClick(Player p) {
+		p.getWorld().spigot().playEffect(p.getLocation(), Effect.BLAZE_SHOOT, 1, 0, 0, 0, 0, 0.1f, 10, 2);
+		p.getWorld().playSound(p.getLocation(), Sound.ENTITY_BLAZE_SHOOT, 0.5f, 0.5f);
 		ProjectileUtil.fireProjectile(p, EntityType.FIREBALL, 2.0, 0.0);
 		
 		return true;

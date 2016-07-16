@@ -1,5 +1,6 @@
 package de.nnl.devathlon_3.spellbook;
 
+import org.bukkit.Effect;
 import org.bukkit.Material;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
@@ -43,6 +44,7 @@ public class ColorSwap implements Spell{
 	public boolean onRightClick(Player p) {
 		for(Entity entity : p.getWorld().getEntities()){
             if(entity instanceof Sheep){
+            	p.getWorld().spigot().playEffect(entity.getLocation(), Effect.COLOURED_DUST, 1, 0, 0, 0, 0, 0.1f, 10, 2);
             	if(Util.distance(p.getLocation().getBlockX(), p.getLocation().getBlockY(), p.getLocation().getBlockZ(), entity.getLocation().getBlockX(), entity.getLocation().getBlockY(), entity.getLocation().getBlockZ()) <= 12.0)((Sheep) entity).setColor(Util.randomDyeColor());
             }
         }
