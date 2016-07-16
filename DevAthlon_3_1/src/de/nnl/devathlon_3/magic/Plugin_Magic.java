@@ -15,6 +15,7 @@ import de.nnl.devathlon_3.spellbook.FelSpell;
 import de.nnl.devathlon_3.spellbook.FireSpell;
 import de.nnl.devathlon_3.spellbook.LevelToManaSpell;
 import de.nnl.devathlon_3.spellbook.LighteningSpell;
+import de.nnl.devathlon_3.spellbook.LogSpell;
 import de.nnl.devathlon_3.spellbook.ManaSpell;
 import de.nnl.devathlon_3.spellbook.MiningSpell;
 import de.nnl.devathlon_3.spellbook.TeleportSpell;
@@ -40,6 +41,7 @@ public class Plugin_Magic extends JavaPlugin{
 		spellHandler.addSpell(new FireSpell());
 		spellHandler.addSpell(new SnowSpell());
 		spellHandler.addSpell(new MiningSpell());
+		spellHandler.addSpell(new LogSpell());
 		spellHandler.addSpell(new LighteningSpell());
 		spellHandler.addSpell(new ColorSwap());
 		spellHandler.addSpell(new FelSpell());
