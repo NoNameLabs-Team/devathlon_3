@@ -53,22 +53,24 @@ public class FelSpell implements Spell{
             }
         }
 		
-		for(int x = p.getLocation().getBlockX() - 4; x < p.getLocation().getBlockX() + 4; x++){
-			for(int y = p.getLocation().getBlockY() - 3; y < p.getLocation().getBlockY() + 3; y++){
-				for(int z = p.getLocation().getBlockZ() - 4; z < p.getLocation().getBlockZ() + 4; z++){
+		for(int x = p.getLocation().getBlockX() - (6 + Util.RANDOM.nextInt(4)); x < p.getLocation().getBlockX() + 6 + + Util.RANDOM.nextInt(3); x++){
+			for(int y = p.getLocation().getBlockY() - (6 + Util.RANDOM.nextInt(6)); y < p.getLocation().getBlockY() + 6 + Util.RANDOM.nextInt(8); y++){
+				for(int z = p.getLocation().getBlockZ() - (6 + + Util.RANDOM.nextInt(2)); z < p.getLocation().getBlockZ() + 6 + + Util.RANDOM.nextInt(12); z++){
 					
-					Block b = p.getLocation().getWorld().getBlockAt(x, y, z);
-					
-					if(b.getType() == Material.GRASS){
-						b.setType(Material.DIRT);
-						b.setData((byte)(2));
+					if(Util.distance(x, y, z, p.getLocation().getBlockX(), p.getLocation().getBlockY(), p.getLocation().getBlockZ()) <= 12.0){
+						Block b = p.getLocation().getWorld().getBlockAt(x, y, z);
+						
+						if(b.getType() == Material.GRASS){
+							b.setType(Material.DIRT);
+							b.setData((byte)(2));
+						}
+						else if(b.getType() == Material.DIRT)b.setData((byte) 1);
+						else if(b.getType() == Material.SAPLING || b.getType() == Material.YELLOW_FLOWER|| b.getType() == Material.RED_ROSE|| b.getType() == Material.YELLOW_FLOWER)b.setType(Material.DEAD_BUSH);
+						else if(b.getType() == Material.DOUBLE_PLANT)b.setData((byte) 3);
+						else if(b.getType() == Material.LOG ||b.getType() == Material.VINE || b.getType() == Material.LOG_2 || b.getType() == Material.LEAVES || b.getType() == Material.LEAVES_2)b.setType(Material.AIR);
+						else if(b.getType() == Material.STONE) b.setType(Material.COBBLESTONE);
+						else if(b.getType() == Material.SAND || b.getType() == Material.GRAVEL) b.setType(Material.SOUL_SAND);
 					}
-					else if(b.getType() == Material.DIRT)b.setData((byte) 1);
-					else if(b.getType() == Material.SAPLING || b.getType() == Material.YELLOW_FLOWER|| b.getType() == Material.RED_ROSE|| b.getType() == Material.YELLOW_FLOWER)b.setType(Material.DEAD_BUSH);
-					else if(b.getType() == Material.DOUBLE_PLANT)b.setData((byte) 3);
-					else if(b.getType() == Material.LOG ||b.getType() == Material.VINE || b.getType() == Material.LOG_2 || b.getType() == Material.LEAVES || b.getType() == Material.LEAVES_2)b.setType(Material.AIR);
-					else if(b.getType() == Material.STONE) b.setType(Material.COBBLESTONE);
-					else if(b.getType() == Material.SAND || b.getType() == Material.GRAVEL) b.setType(Material.SOUL_SAND);
 					
 				}
 			}
