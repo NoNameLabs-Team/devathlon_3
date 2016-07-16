@@ -1,9 +1,22 @@
 package de.nll.devathlon_3.spells;
 
-public interface Spell {
+import org.bukkit.Material;
+import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 
-	public void onRightClick();
-	public void onLeftClick();
-	public void onDrop();
+public interface Spell {
 	
+	public Material[] getIngredients();
+	
+	public String getLore();
+	
+	public String getName();
+	
+	public boolean isReusable();
+	
+	public ItemStack getItem();
+	
+	public int getExpCost();
+		
+	public void onRightClick(Player p);
 }
