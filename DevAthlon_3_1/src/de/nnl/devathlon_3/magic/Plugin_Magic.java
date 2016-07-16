@@ -6,6 +6,13 @@ public class Plugin_Magic extends JavaPlugin{
 	
 	
 	
+	public void onEnable(){
+
+	}
+	
+	public void onDisable() {
+
+	}
 	
 
 }

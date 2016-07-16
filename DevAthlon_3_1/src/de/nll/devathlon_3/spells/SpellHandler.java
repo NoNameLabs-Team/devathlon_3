@@ -7,6 +7,7 @@ import java.util.Map;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -27,15 +28,20 @@ public class SpellHandler {
 	}
 	
 	public Spell getSpell(ItemStack i) {
-		
+		return spells.get(i);
 	}
 	
 	public ItemStack getItem(Spell s) {
-		
+		for(ItemStack i: spells.keySet()){
+			if(spells.get(i).equals(s))return i;
+		}
+		return null;
 	}
 	
 	public void removeSpell(Spell s) {
-		
+		for(ItemStack i: spells.keySet()){
+			if(spells.get(i).equals(s))spells.remove(i);
+		}
 	}
 	
 	public static ShapedRecipe buildRecipe(Spell s, ItemStack item) {
@@ -73,6 +79,7 @@ public class SpellHandler {
 		
 		im.setLore(lore_list);
 		is.setItemMeta(im);
+		is.addUnsafeEnchantment(Enchantment.DURABILITY, 1);
 		
 		return is;
 	}
