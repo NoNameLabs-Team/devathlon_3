@@ -55,8 +55,8 @@ public class LogSpell implements Spell{
 			
 			for(Block b2: logs){
 				
-				if(b2.getType() == Material.LOG)p.getInventory().addItem(new ItemStack(Material.WOOD, 1, b2.getData()));
-				else p.getInventory().addItem(new ItemStack(Material.WOOD, 1, (short) (b2.getData() + 4)));
+				if(b2.getType() == Material.LOG)p.getInventory().addItem(new ItemStack(Material.WOOD, 1, (short) (b2.getData()%4)));
+				else p.getInventory().addItem(new ItemStack(Material.WOOD, 1, (short) ((b2.getData()) % 4 + 4)));
 				b2.setType(Material.AIR);
 				
 			}
