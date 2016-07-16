@@ -48,7 +48,7 @@ public class TreeSpell implements Spell{
 		else l = new Location(b.getWorld(), b.getX(), b.getY() + 1, b.getZ());
 		TreeType type = TreeType.TREE;
 		
-		switch(Util.RANDOM.nextInt(12)){
+		switch(Util.RANDOM.nextInt(13)){
 		
 		case(0):
 			type = TreeType.ACACIA;
