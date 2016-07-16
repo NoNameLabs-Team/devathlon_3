@@ -35,7 +35,6 @@ public class Plugin_Magic extends JavaPlugin{
 		spellHandler.addSpell(new TreeSpell());
 		spellHandler.addSpell(new FireSpell());
 		spellHandler.addSpell(new SnowSpell());
-		spellHandler.addSpell(new TeleportSpell());
 		spellHandler.addSpell(new ColorSwap());
 		spellHandler.addSpell(new LevelToManaSpell(manaHandler));
 		spellHandler.addSpell(new ManaSpell(manaHandler));

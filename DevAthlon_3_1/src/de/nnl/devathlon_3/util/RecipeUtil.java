@@ -46,9 +46,9 @@ public class RecipeUtil {
 		ItemStack book = new ItemStack(Material.BOOK);
 		ItemMeta bm = book.getItemMeta();
 		
-		bm.setDisplayName(ChatColor.YELLOW + "" + ChatColor.MAGIC + "--" + ChatColor.RESET + ChatColor.RED + "Zauber-Rezept-Buch" + ChatColor.YELLOW + ChatColor.MAGIC + "--");
+		bm.setDisplayName(ChatColor.YELLOW + "" + ChatColor.MAGIC + "--" + ChatColor.RESET + ChatColor.RED + "Spellrecipe-Book" + ChatColor.YELLOW + ChatColor.MAGIC + "--");
 		List<String> lore = new ArrayList<String>();
-		lore.add("von " + ChatColor.GOLD + "Gott");
+		lore.add("by " + ChatColor.GOLD + "Medivh");
 		bm.setLore(lore);
 		
 		book.setItemMeta(bm);
