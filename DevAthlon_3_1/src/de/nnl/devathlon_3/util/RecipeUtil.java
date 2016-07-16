@@ -9,7 +9,6 @@ import org.bukkit.Material;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.ShapedRecipe;
-import org.bukkit.inventory.meta.BookMeta;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import de.nnl.devathlon_3.spells.Spell;
@@ -57,7 +56,7 @@ public class RecipeUtil {
 	}
 	
 	public static Inventory createRecipeInventory(SpellHandler sp) {
-		Inventory inv = Bukkit.createInventory(null, 9*3);
+		Inventory inv = Bukkit.createInventory(null, 9*3, "Rezepte");
 		
 		applyRecipePageToInventory(sp, 1, inv);
 		
@@ -67,8 +66,19 @@ public class RecipeUtil {
 	public static void applyRecipePageToInventory(SpellHandler sp, int page, Inventory inv) {
 		List<ShapedRecipe> recipes = sp.getRecipes();
 		if (recipes.size()+1 > page) {
-			if (recipes.size() > page) inv.setItem(26, Util.createItemStack(Material.GLOWSTONE_DUST, 1, "Nächste Seite"));
-			if (1 < page) inv.setItem(25, Util.createItemStack(Material.GLOWSTONE_DUST, 1, "Vorherige Seite"));
+			
+			inv.setItem(8, Util.createItemStack(Material.REDSTONE, 1, page + " / " + (recipes.size()+1)));
+			if (recipes.size() > page){
+				inv.setItem(26, Util.createItemStack(Material.GLOWSTONE_DUST, 1, "Nächste Seite"));
+			} else {
+				inv.setItem(26, new ItemStack(Material.AIR));
+			}
+			
+			if (1 < page) {
+				inv.setItem(25, Util.createItemStack(Material.GLOWSTONE_DUST, 1, "Vorherige Seite"));
+			} else {
+				inv.setItem(25, new ItemStack(Material.AIR));
+			}
 						
 			ShapedRecipe r = recipes.get(page-1);
 			
