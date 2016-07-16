@@ -107,7 +107,7 @@ public class ManaHandler implements Listener {
 	
 	public boolean useSpell(Spell s, Player p) {
 		if (s.getManaCost() <= mana.get(p.getName())) {
-			mana.put(p.getName(), mana.get(p.getName()) + s.getManaCost());
+			mana.put(p.getName(), mana.get(p.getName()) - s.getManaCost());
 			updateMana(p);
 			return true;
 		}

@@ -39,7 +39,7 @@ public class Plugin_Magic extends JavaPlugin{
 		spellHandler.addSpell(new FireSpell());
 		spellHandler.addSpell(new WaterSpell());
 		
-		spellListener = new SpellListener(spellHandler);
+		spellListener = new SpellListener(spellHandler, manaHandler);
 		Bukkit.getPluginManager().registerEvents(spellListener, this);
 		Bukkit.getPluginManager().registerEvents(manaHandler, this);
 	}

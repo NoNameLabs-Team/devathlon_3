@@ -12,15 +12,17 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
+import de.nnl.devathlon_3.mana.ManaHandler;
 import de.nnl.devathlon_3.util.ItemUtil;
 import de.nnl.devathlon_3.util.RecipeUtil;
 
 public class SpellListener implements Listener {
 	
 	private SpellHandler spellHandler;
-	
-	public SpellListener(SpellHandler spellHandler) {
+	private ManaHandler manaHandler;
+	public SpellListener(SpellHandler spellHandler, ManaHandler manaHandler) {
 		this.spellHandler = spellHandler;
+		this.manaHandler = manaHandler;
 	}
 		
 	@EventHandler
@@ -34,8 +36,7 @@ public class SpellListener implements Listener {
 			if (s != null) {
 				e.setCancelled(true);
 				
-				if (s.getManaCost() <= p.getLevel()) {
-					if(p.getGameMode() != GameMode.CREATIVE)p.setLevel(p.getLevel() - s.getManaCost());
+				if (manaHandler.useSpell(s, p)) {
 					
 					if (!s.isReusable()) {
 						if (i.getAmount() == 1) {
