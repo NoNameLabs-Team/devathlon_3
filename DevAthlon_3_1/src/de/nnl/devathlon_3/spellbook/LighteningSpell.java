@@ -50,7 +50,7 @@ public class LighteningSpell implements Spell{
 				for(int z = loc.getBlockZ() - (Util.RANDOM.nextInt(11) + 2); z < loc.getBlockZ() + + Util.RANDOM.nextInt(12) + 2; z++){
 					
 					if(Util.distance(x, y, z, loc.getBlockX()	, loc.getBlockY(), loc.getBlockZ()) <= 6.0 + Util.RANDOM.nextInt(8)){
-						loc.getBlock().setType(Material.FIRE);
+						loc.getWorld().getBlockAt(new Location(loc.getWorld(), x, y, z)).setType(Material.FIRE);
 					}
 					
 				}
