@@ -1,5 +1,6 @@
 package de.nnl.devathlon_3.spellbook;
 
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.material.MaterialData;
@@ -39,7 +40,7 @@ public class CakeSpell implements Spell{
 
 	@Override
 	public void onRightClick(Player p) {
-		p.sendMessage("The cake is a lie");
+		p.sendMessage(ChatColor.RED + "The cake is a lie");
 	}
 
 }
