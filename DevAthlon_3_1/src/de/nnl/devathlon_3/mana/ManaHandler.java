@@ -10,6 +10,7 @@ import net.minecraft.server.v1_10_R1.IChatBaseComponent.ChatSerializer;
 import net.minecraft.server.v1_10_R1.PacketPlayOutChat;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.craftbukkit.v1_10_R1.entity.CraftPlayer;
 import org.bukkit.entity.Player;
@@ -130,7 +131,22 @@ public class ManaHandler implements Listener {
 	
 	public static void sendManaBar(Player player, int mana, int max_mana){
         CraftPlayer p = (CraftPlayer) player;
-        IChatBaseComponent cbc = ChatSerializer.a("{\"text\": \"" + mana + " / " + max_mana + "\"}");
+        
+        String text = ChatColor.AQUA + "" + mana + " [" + ChatColor.RED;
+        
+        for (int i = 0; i < (40*mana)/max_mana; i++) {
+        	text += "|";
+        }
+        
+        text += ChatColor.WHITE;
+        
+        for (int i = 0; i < 40 - (40*mana)/max_mana; i++) {
+        	text += "|";
+        }
+        
+        text += ChatColor.AQUA + "] " + max_mana;
+        
+        IChatBaseComponent cbc = ChatSerializer.a("{\"text\": \"" + text + "\"}");
         PacketPlayOutChat ppoc = new PacketPlayOutChat(cbc,(byte) 2);
         ((CraftPlayer) p).getHandle().playerConnection.sendPacket(ppoc);
     }
