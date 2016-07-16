@@ -1,5 +1,6 @@
 package de.nnl.devathlon_3.spellbook;
 
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
@@ -27,7 +28,7 @@ public class FireSpell implements Spell{
 
 	@Override
 	public String getName() {
-		return "Fireball";
+		return ChatColor.DARK_RED + "Fireball";
 	}
 
 	@Override

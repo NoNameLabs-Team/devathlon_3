@@ -1,5 +1,6 @@
 package de.nnl.devathlon_3.spellbook;
 
+import org.bukkit.Color;
 import org.bukkit.Effect;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -24,7 +25,7 @@ public class SnowSpell implements Spell{
 
 	@Override
 	public String getName() {
-		return "Snow";
+		return Color.AQUA + "Snow";
 	}
 
 	@Override

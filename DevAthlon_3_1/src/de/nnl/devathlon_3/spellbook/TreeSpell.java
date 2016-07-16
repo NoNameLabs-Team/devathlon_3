@@ -2,6 +2,7 @@ package de.nnl.devathlon_3.spellbook;
 
 import java.util.HashSet;
 
+import org.bukkit.ChatColor;
 import org.bukkit.DyeColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -25,7 +26,7 @@ public class TreeSpell implements Spell{
 
 	@Override
 	public String getName() {
-		return "TreeSpell";
+		return ChatColor.GREEN + "TreeSpell";
 	}
 
 	@Override

@@ -2,6 +2,7 @@ package de.nnl.devathlon_3.spellbook;
 
 import java.util.HashSet;
 
+import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -26,7 +27,7 @@ public class LighteningSpell implements Spell{
 
 	@Override
 	public String getName() {
-		return "Thors Spell";
+		return ChatColor.GOLD + "Thors Spell";
 	}
 
 	@Override
