@@ -3,8 +3,10 @@ package de.nnl.devathlon_3.spellbook;
 import java.util.HashSet;
 
 import org.bukkit.ChatColor;
+import org.bukkit.Effect;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.material.MaterialData;
@@ -63,6 +65,9 @@ public class ArrowSpell implements Spell {
 				Location loc2 = new Location(loc.getWorld(), loc.getX() + Util.RANDOM.nextDouble()*10-5, loc.getY() + Util.RANDOM.nextInt(5) + 25, loc.getZ() + Util.RANDOM.nextDouble()*10-5);
 				ProjectileUtil.fireProjectile(p, EntityType.ARROW, new Vector(0, -1, 0), loc2);
 
+				p.getWorld().spigot().playEffect(p.getLocation(), Effect.BOW_FIRE, 1, 0, 0, 0, 0, 0.1f, 10, 2);
+				p.getWorld().playSound(p.getLocation(), Sound.ENTITY_SKELETON_SHOOT, 0.5f, 0.5f);
+				
 				if (i % 200 == 0) {
 					cancel();
 				}
