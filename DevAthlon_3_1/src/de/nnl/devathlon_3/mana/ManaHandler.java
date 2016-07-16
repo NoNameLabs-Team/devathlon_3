@@ -113,9 +113,11 @@ public class ManaHandler implements Listener {
 		return false;
 	}
 	
-	public void addMana(Player p, int amount) {
+	public boolean addMana(Player p, int amount) {
+		boolean result = mana.get(p.getName()) < max_mana.get(p.getName());
 		mana.put(p.getName(), Math.min(mana.get(p.getName()) + amount, max_mana.get(p.getName())));
 		updateMana(p);
+		return result;
 	}
 	
 	public void addMaximumMana(Player p, int amount) {
