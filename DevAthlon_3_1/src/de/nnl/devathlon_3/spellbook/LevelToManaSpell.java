@@ -7,10 +7,10 @@ import org.bukkit.material.MaterialData;
 import de.nnl.devathlon_3.mana.ManaHandler;
 import de.nnl.devathlon_3.spells.Spell;
 
-public class LevelToMana implements Spell{
+public class LevelToManaSpell implements Spell{
 
 	private ManaHandler mh;
-	public LevelToMana(ManaHandler mh){
+	public LevelToManaSpell(ManaHandler mh){
 		this.mh = mh;
 	}
 
@@ -46,7 +46,7 @@ public class LevelToMana implements Spell{
 			return false;
 		} else {
 			p.setLevel(p.getLevel() - 5);
-			mh.addMana(p, 2);
+			mh.addMaximumMana(p, 2);
 			return true;
 			
 		}
