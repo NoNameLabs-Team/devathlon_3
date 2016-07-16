@@ -22,14 +22,14 @@ public class TeleportSpell implements Spell{
 	@Override
 	public boolean onRightClick(Player p) {
 		
-		p.getWorld().spigot().playEffect(p.getLocation(), Effect.ENDER_SIGNAL, 1, 0, 0, 0, 0, 0.1f, 10, 2);
+		p.getWorld().spigot().playEffect(p.getLocation(), Effect.ENDER_SIGNAL, 1, 0, 0, 0, 0, 0.1f, 10, 8);
 		p.getWorld().playSound(p.getLocation(), Sound.ENTITY_ENDERMEN_TELEPORT, 0.5f, 0.5f);
 		
 		Block b = p.getTargetBlock((HashSet<Byte>) null, 50);
 		Location l = new Location(b.getWorld(), b.getX(), b.getY() + 
 				1, b.getZ(), p.getLocation().getYaw(), p.getLocation().getPitch());
 		p.teleport(l);
-		p.getWorld().spigot().playEffect(p.getLocation(), Effect.ENDER_SIGNAL, 1, 0, 0, 0, 0, 0.1f, 10, 2);
+		p.getWorld().spigot().playEffect(p.getLocation(), Effect.ENDER_SIGNAL, 1, 0, 0, 0, 0, 0.1f, 10, 8);
 		p.getWorld().playSound(p.getLocation(), Sound.ENTITY_ENDERMEN_TELEPORT, 0.5f, 0.5f);
 		
 		return true;

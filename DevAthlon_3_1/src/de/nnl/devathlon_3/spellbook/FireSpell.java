@@ -45,7 +45,7 @@ public class FireSpell implements Spell{
 
 	@Override
 	public boolean onRightClick(Player p) {
-		p.getWorld().spigot().playEffect(p.getLocation(), Effect.BLAZE_SHOOT, 1, 0, 0, 0, 0, 0.1f, 10, 2);
+		p.getWorld().spigot().playEffect(p.getLocation(), Effect.BLAZE_SHOOT, 1, 0, 0, 0, 0, 0.1f, 10, 20);
 		p.getWorld().playSound(p.getLocation(), Sound.ENTITY_BLAZE_SHOOT, 0.5f, 0.5f);
 		ProjectileUtil.fireProjectile(p, EntityType.FIREBALL, 2.0, 0.0);
 		

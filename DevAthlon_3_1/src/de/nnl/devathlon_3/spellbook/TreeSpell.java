@@ -7,7 +7,6 @@ import org.bukkit.DyeColor;
 import org.bukkit.Effect;
 import org.bukkit.Location;
 import org.bukkit.Material;
-import org.bukkit.Sound;
 import org.bukkit.TreeType;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
@@ -46,7 +45,7 @@ public class TreeSpell implements Spell{
 	public boolean onRightClick(Player p) {
 		Block b = p.getTargetBlock((HashSet<Byte>) null, 15);
 	
-		p.getWorld().spigot().playEffect(b.getLocation(), Effect.CLOUD, 1, 0, 0, 0, 0, 0.1f, 10, 2);
+		p.getWorld().spigot().playEffect(b.getLocation(), Effect.CLOUD, 1, 0, 0, 0, 0, 0.1f, 10, 18);
 		
 		Location l;
 		if(b.getType() != Material.AIR)l = new Location(b.getWorld(), b.getX(), b.getY(), b.getZ());

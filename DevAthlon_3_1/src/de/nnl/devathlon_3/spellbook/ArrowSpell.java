@@ -66,7 +66,7 @@ public class ArrowSpell implements Spell {
 				ProjectileUtil.fireProjectile(p, EntityType.ARROW, new Vector(0, -1, 0), loc2);
 
 				if(Util.RANDOM.nextInt(15) < 2){
-					p.getWorld().spigot().playEffect(p.getLocation(), Effect.BOW_FIRE, 1, 0, 0, 0, 0, 0.1f, 10, 2);
+					p.getWorld().spigot().playEffect(p.getLocation(), Effect.BOW_FIRE, 1, 0, 0, 0, 0, 0.1f, 10, 20);
 					p.getWorld().playSound(p.getLocation(), Sound.ENTITY_SKELETON_SHOOT, 0.5f, 0.5f);
 				}
 				
