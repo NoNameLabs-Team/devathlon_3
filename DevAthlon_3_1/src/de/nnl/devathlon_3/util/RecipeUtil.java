@@ -67,7 +67,7 @@ public class RecipeUtil {
 		List<ShapedRecipe> recipes = sp.getRecipes();
 		if (recipes.size()+1 > page) {
 			
-			inv.setItem(8, Util.createItemStack(Material.REDSTONE, 1, page + " / " + (recipes.size()+1)));
+			inv.setItem(8, Util.createItemStack(Material.REDSTONE, 1, page + " / " + (recipes.size())));
 			if (recipes.size() > page){
 				inv.setItem(26, Util.createItemStack(Material.GLOWSTONE_DUST, 1, "Nächste Seite"));
 			} else {

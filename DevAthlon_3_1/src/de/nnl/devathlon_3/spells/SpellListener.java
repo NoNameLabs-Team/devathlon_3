@@ -12,7 +12,6 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
 import de.nnl.devathlon_3.util.RecipeUtil;
-import de.nnl.devathlon_3.util.SpellUtil;
 import de.nnl.devathlon_3.util.Util;
 
 public class SpellListener implements Listener {
@@ -71,9 +70,9 @@ public class SpellListener implements Listener {
 			int currpage = Integer.valueOf(inv.getItem(8).getItemMeta().getDisplayName().split(" ")[0]);
 			
 			if (item.equals(Util.createItemStack(Material.GLOWSTONE_DUST, 1, "Vorherige Seite"))) {
-				RecipeUtil.applyRecipePageToInventory(spellHandler, currpage + 1, inv);
-			} else if (item.equals(Util.createItemStack(Material.GLOWSTONE_DUST, 1, "Nächste Seite"))) {
 				RecipeUtil.applyRecipePageToInventory(spellHandler, currpage - 1, inv);
+			} else if (item.equals(Util.createItemStack(Material.GLOWSTONE_DUST, 1, "Nächste Seite"))) {
+				RecipeUtil.applyRecipePageToInventory(spellHandler, currpage + 1, inv);
 			}
 		}
 	}

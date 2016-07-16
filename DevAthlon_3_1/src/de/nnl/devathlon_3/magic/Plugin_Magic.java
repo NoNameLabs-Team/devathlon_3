@@ -15,7 +15,6 @@ import de.nnl.devathlon_3.spellbook.TeleportSpell;
 import de.nnl.devathlon_3.spells.SpellHandler;
 import de.nnl.devathlon_3.spells.SpellListener;
 import de.nnl.devathlon_3.util.RecipeUtil;
-import de.nnl.devathlon_3.util.SpellUtil;
 
 public class Plugin_Magic extends JavaPlugin{
 	
