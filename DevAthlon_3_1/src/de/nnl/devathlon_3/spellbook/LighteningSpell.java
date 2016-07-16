@@ -45,12 +45,12 @@ public class LighteningSpell implements Spell{
 		Location loc = p.getTargetBlock((HashSet<Byte>)null, 100).getLocation();
 		p.getWorld().spigot().strikeLightning(loc, false);
 		
-		for(int x = loc.getBlockX() - (Util.RANDOM.nextInt(10) + 2); x < loc.getBlockX() + Util.RANDOM.nextInt(15) + 2; x++){
-			for(int y = loc.getBlockY() - (Util.RANDOM.nextInt(12) + 2); y < loc.getBlockY() + Util.RANDOM.nextInt(8) + 2; y++){
-				for(int z = loc.getBlockZ() - (Util.RANDOM.nextInt(11) + 2); z < loc.getBlockZ() + + Util.RANDOM.nextInt(12) + 2; z++){
+		for(int x = loc.getBlockX() - (Util.RANDOM.nextInt(5) + 2); x < loc.getBlockX() + Util.RANDOM.nextInt(5) + 2; x++){
+			for(int y = loc.getBlockY() - (Util.RANDOM.nextInt(5) + 2); y < loc.getBlockY() + Util.RANDOM.nextInt(5) + 2; y++){
+				for(int z = loc.getBlockZ() - (Util.RANDOM.nextInt(5) + 2); z < loc.getBlockZ() + + Util.RANDOM.nextInt(5) + 2; z++){
 					
 					if(Util.distance(x, y, z, loc.getBlockX()	, loc.getBlockY(), loc.getBlockZ()) <= 6.0 + Util.RANDOM.nextInt(8)){
-						loc.getWorld().getBlockAt(new Location(loc.getWorld(), x, y, z)).setType(Material.FIRE);
+						if(Util.RANDOM.nextInt(10) <= 2)loc.getWorld().getBlockAt(new Location(loc.getWorld(), x, y, z)).setType(Material.FIRE);
 					}
 					
 				}
