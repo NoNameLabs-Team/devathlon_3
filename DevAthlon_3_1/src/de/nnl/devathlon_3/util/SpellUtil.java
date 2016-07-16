@@ -11,6 +11,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import de.nnl.devathlon_3.spells.Spell;
 
 public class SpellUtil {
+
 	/**
 	 * Creates an item stack from a spell
 	 * @param s

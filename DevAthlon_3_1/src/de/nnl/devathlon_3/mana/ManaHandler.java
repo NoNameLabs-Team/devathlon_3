@@ -34,7 +34,7 @@ public class ManaHandler implements Listener {
 		max_mana = new HashMap<String, Integer>();
 		mana = new HashMap<String, Integer>();
 		
-		//Load mana data from file
+		//Loads mana data from file
 		File f = new File(plugin.getDataFolder(), "mana.yml");
 		if (f.exists()) {
 			YamlConfiguration config = YamlConfiguration.loadConfiguration(f);
@@ -71,7 +71,7 @@ public class ManaHandler implements Listener {
 		Bukkit.getScheduler().cancelTask(taskID);
 		
 		
-		//Save mana to file
+		//Saves mana to file
 		File f = new File(plugin.getDataFolder(), "mana.yml");
 		
 		if (f.exists()) {

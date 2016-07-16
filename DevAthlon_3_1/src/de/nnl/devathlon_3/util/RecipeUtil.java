@@ -16,6 +16,7 @@ import de.nnl.devathlon_3.spells.Spell;
 import de.nnl.devathlon_3.spells.SpellHandler;
 
 public class RecipeUtil {
+	
 	/**
 	 * Creates a shaped recipe from a spell
 	 * @param s
@@ -79,7 +80,7 @@ public class RecipeUtil {
 	}
 	
 	/**
-	 * Applies a spezific page to the spell recipe inventory
+	 * Applies a specific page to the spell recipe inventory
 	 * @param sp
 	 * @param page
 	 * @param inv

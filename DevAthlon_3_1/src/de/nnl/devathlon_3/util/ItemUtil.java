@@ -9,7 +9,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 public class ItemUtil {
 	
 	/**
-	 * Creates itemstack with custom name
+	 * Creates a itemstack with custom name
 	 * @param material
 	 * @param amount
 	 * @param name

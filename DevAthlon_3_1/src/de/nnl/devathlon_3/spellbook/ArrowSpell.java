@@ -27,7 +27,9 @@ public class ArrowSpell implements Spell {
 	
 	@Override
 	public MaterialData[] getIngredients() {
-		return new MaterialData[] {new MaterialData(Material.ARROW), new MaterialData(Material.ARROW), new MaterialData(Material.BOW), new MaterialData(Material.SKULL_ITEM), new MaterialData(Material.BOW), new MaterialData(Material.ARROW), new MaterialData(Material.ARROW)};
+		return new MaterialData[] {new MaterialData(Material.ARROW), new MaterialData(Material.ARROW),	//First line of the crafting recipe
+				new MaterialData(Material.BOW), new MaterialData(Material.SKULL_ITEM), new MaterialData(Material.BOW),	//Middle line of the crafting recipe
+				new MaterialData(Material.ARROW), new MaterialData(Material.ARROW)};	//Bottom line of the crafting recipe
 	}
 
 	@Override
@@ -62,9 +64,11 @@ public class ArrowSpell implements Spell {
 			public void run() {
 				i++;
 				
+				//Summons 2000 arrows falling from the sky
 				Location loc2 = new Location(loc.getWorld(), loc.getX() + Util.RANDOM.nextDouble()*10-5, loc.getY() + Util.RANDOM.nextInt(5) + 25, loc.getZ() + Util.RANDOM.nextDouble()*10-5);
 				ProjectileUtil.fireProjectile(p, EntityType.ARROW, new Vector(0, -1, 0), loc2);
 
+				//Plays sound and effect to a chance of 2/15
 				if(Util.RANDOM.nextInt(15) < 2){
 					p.getWorld().spigot().playEffect(p.getLocation(), Effect.BOW_FIRE, 1, 0, 0, 0, 0, 0.1f, 10, 20);
 					p.getWorld().playSound(p.getLocation(), Sound.ENTITY_SKELETON_SHOOT, 0.5f, 0.5f);
