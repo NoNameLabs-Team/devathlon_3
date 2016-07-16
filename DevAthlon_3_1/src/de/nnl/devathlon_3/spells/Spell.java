@@ -1,11 +1,11 @@
 package de.nnl.devathlon_3.spells;
 
-import org.bukkit.Material;
 import org.bukkit.entity.Player;
+import org.bukkit.material.MaterialData;
 
 public interface Spell {
 	
-	public Material[] getIngredients();
+	public MaterialData[] getIngredients();
 	
 	public String getLore();
 	

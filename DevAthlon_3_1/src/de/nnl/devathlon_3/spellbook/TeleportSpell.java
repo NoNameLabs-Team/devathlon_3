@@ -6,6 +6,7 @@ import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
+import org.bukkit.material.MaterialData;
 
 import de.nnl.devathlon_3.spells.Spell;
 
@@ -39,8 +40,8 @@ public class TeleportSpell implements Spell{
 	}
 	
 	@Override
-	public Material[] getIngredients() {
-		return new Material[] {Material.ENDER_PEARL, Material.ENDER_PEARL, Material.END_ROD, Material.EYE_OF_ENDER, Material.END_ROD, Material.ENDER_STONE, Material.ENDER_STONE};
+	public MaterialData[] getIngredients() {
+		return new MaterialData[] {new MaterialData(Material.ENDER_PEARL), new MaterialData(Material.ENDER_PEARL), new MaterialData(Material.END_ROD), new MaterialData(Material.EYE_OF_ENDER), new MaterialData(Material.END_ROD), new MaterialData(Material.ENDER_STONE), new MaterialData(Material.ENDER_STONE)};
 	}
 	
 	@Override

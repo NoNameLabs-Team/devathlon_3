@@ -7,6 +7,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.HandlerList;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import de.nnl.devathlon_3.mana.ManaHandler;
 import de.nnl.devathlon_3.spellbook.CakeSpell;
 import de.nnl.devathlon_3.spellbook.HealSpell_LV1;
 import de.nnl.devathlon_3.spellbook.LightSpell;
@@ -20,10 +21,12 @@ public class Plugin_Magic extends JavaPlugin{
 	
 	SpellHandler spellHandler;
 	SpellListener spellListener;
+	ManaHandler manaHandler;
 	
 	public void onEnable(){
 		spellHandler = new SpellHandler();
-
+		manaHandler = new ManaHandler();
+		
 		spellHandler.addSpell(new CakeSpell());
 		spellHandler.addSpell(new SpeedSpell());
 		spellHandler.addSpell(new LightSpell());
@@ -32,10 +35,15 @@ public class Plugin_Magic extends JavaPlugin{
 		
 		spellListener = new SpellListener(spellHandler);
 		Bukkit.getPluginManager().registerEvents(spellListener, this);
+		Bukkit.getPluginManager().registerEvents(manaHandler, this);
 	}
 	
 	public void onDisable() {
+		manaHandler.saveMana();
+		
 		HandlerList.unregisterAll(spellListener);
+		HandlerList.unregisterAll(manaHandler);
+		Bukkit.getServer().resetRecipes();
 	}
 	
 	public boolean onCommand(CommandSender sender, Command command, String commandlabel, String[] args) {

@@ -10,6 +10,7 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.material.MaterialData;
 
 import de.nnl.devathlon_3.spells.Spell;
 import de.nnl.devathlon_3.spells.SpellHandler;
@@ -18,7 +19,7 @@ public class RecipeUtil {
 	public static ShapedRecipe buildRecipe(Spell s, ItemStack item) {
 		ShapedRecipe recipe = new ShapedRecipe(item);
 		
-		Material[] ingredients = s.getIngredients();
+		MaterialData[] ingredients = s.getIngredients();
 		
 		String line1, line2, line3;
 		

@@ -19,6 +19,11 @@ public class SpellUtil {
 		List<String> lore_list = new ArrayList<String>();
 		lore_list.add(ChatColor.LIGHT_PURPLE + s.getLore());
 		lore_list.add(ChatColor.GREEN + "Mana Cost: " + s.getManaCost() + " Level");
+		if (s.isReusable()) {
+			lore_list.add(ChatColor.GREEN + "REUSABLE");
+		} else {
+			lore_list.add(ChatColor.RED + "NOT REUSABLE");
+		}
 		
 		im.setLore(lore_list);
 		is.setItemMeta(im);
