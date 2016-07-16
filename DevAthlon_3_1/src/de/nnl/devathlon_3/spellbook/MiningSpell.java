@@ -52,22 +52,44 @@ public class MiningSpell implements Spell{
 					if(Util.distance(x, y, z, p.getLocation().getBlockX(), p.getLocation().getBlockY(), p.getLocation().getBlockZ()) <= 6.0 + Util.RANDOM.nextInt(8)){
 						Block b = p.getLocation().getWorld().getBlockAt(x, y, z);
 						
-						p.getWorld().spigot().playEffect(p.getLocation(), Effect.FLAME, 1, 0, 0, 0, 0, 0.1f, 10, 20);
-						p.getWorld().playSound(p.getLocation(), Sound.BLOCK_FURNACE_FIRE_CRACKLE, 0.5f, 0.5f);
+						boolean isOre = false;
 						
-						if(b.getType() == Material.DIAMOND_ORE)p.getInventory().addItem(new ItemStack(Material.DIAMOND));
-						else if(b.getType() == Material.EMERALD_ORE)p.getInventory().addItem(new ItemStack(Material.EMERALD));
-						else if(b.getType() == Material.IRON_ORE)p.getInventory().addItem(new ItemStack(Material.IRON_INGOT));
-						else if(b.getType() == Material.GOLD_ORE)p.getInventory().addItem(new ItemStack(Material.GOLD_INGOT));
-						else if(b.getType() == Material.COAL_ORE)p.getInventory().addItem(new ItemStack(Material.COAL));
-						else if(b.getType() == Material.LAPIS_ORE){
-							ItemStack lapis = new ItemStack(Material.INK_SACK);
-							Dye dye = new Dye();
-							dye.setColor(DyeColor.BLUE);
-							lapis.setData(dye);
-							p.getInventory().addItem(lapis);
+						if(b.getType() == Material.DIAMOND_ORE){
+							isOre = true;
+							p.getInventory().addItem(new ItemStack(Material.DIAMOND));
 						}
-						else if(b.getType() == Material.REDSTONE_ORE)p.getInventory().addItem(new ItemStack(Material.REDSTONE));
+						else if(b.getType() == Material.EMERALD_ORE){
+							isOre = true;
+							p.getInventory().addItem(new ItemStack(Material.EMERALD));
+						}
+						else if(b.getType() == Material.IRON_ORE){
+							isOre = true;
+							p.getInventory().addItem(new ItemStack(Material.IRON_INGOT));
+						}
+						else if(b.getType() == Material.GOLD_ORE){
+							isOre = true;
+							p.getInventory().addItem(new ItemStack(Material.GOLD_INGOT));
+						}
+						else if(b.getType() == Material.COAL_ORE){
+							isOre = true;
+							p.getInventory().addItem(new ItemStack(Material.COAL));
+						}
+						else if(b.getType() == Material.LAPIS_ORE){
+							ItemStack lapis = new ItemStack(Material.INK_SACK, 4);
+							isOre = true;
+							for(int i = 0; i < Util.RANDOM.nextInt(5) + 2; i++)p.getInventory().addItem(lapis);
+						}
+						else if(b.getType() == Material.REDSTONE_ORE){
+							isOre = true;
+							for(int i = 0; i < Util.RANDOM.nextInt(5) + 2; i++)p.getInventory().addItem(new ItemStack(Material.REDSTONE));
+						}
+						
+						if(isOre){
+							b.setType(Material.AIR);
+							p.getWorld().spigot().playEffect(b.getLocation(), Effect.FLAME, 1, 0, 0, 0, 0, 0.1f, 10, 20);
+							p.getWorld().playSound(b.getLocation(), Sound.BLOCK_FURNACE_FIRE_CRACKLE, 0.5f, 0.5f);
+						}
+						
 					}
 					
 				}
