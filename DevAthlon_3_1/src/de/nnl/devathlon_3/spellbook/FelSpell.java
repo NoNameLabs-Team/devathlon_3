@@ -53,7 +53,7 @@ public class FelSpell implements Spell{
             }
         }
 		
-		for(int x = p.getLocation().getBlockX() - (6 + Util.RANDOM.nextInt(4)); x < p.getLocation().getBlockX() + 6 + + Util.RANDOM.nextInt(3); x++){
+		for(int x = p.getLocation().getBlockX() - (6 + Util.RANDOM.nextInt(4)); x < p.getLocation().getBlockX() + 6 + + Util.RANDOM.nextInt(15); x++){
 			for(int y = p.getLocation().getBlockY() - (6 + Util.RANDOM.nextInt(6)); y < p.getLocation().getBlockY() + 6 + Util.RANDOM.nextInt(8); y++){
 				for(int z = p.getLocation().getBlockZ() - (6 + + Util.RANDOM.nextInt(2)); z < p.getLocation().getBlockZ() + 6 + + Util.RANDOM.nextInt(12); z++){
 					
