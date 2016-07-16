@@ -2,12 +2,10 @@ package de.nnl.devathlon_3.spellbook;
 
 import org.bukkit.Material;
 import org.bukkit.block.Block;
-import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.material.MaterialData;
 
 import de.nnl.devathlon_3.spells.Spell;
-import de.nnl.devathlon_3.util.ProjectileUtil;
 
 public class WaterSpell implements Spell{
 
@@ -15,17 +13,17 @@ public class WaterSpell implements Spell{
 
 	@Override
 	public MaterialData[] getIngredients() {
-		return new MaterialData[]{new MaterialData(Material.PRISMARINE_SHARD), new MaterialData(Material.PRISMARINE_CRYSTALS), new MaterialData(Material.ICE), new MaterialData(Material.ICE), new MaterialData(Material.SNOW), new MaterialData(Material.SNOW)};
+		return new MaterialData[]{new MaterialData(Material.PRISMARINE_SHARD), new MaterialData(Material.PRISMARINE_CRYSTALS), new MaterialData(Material.ICE), new MaterialData(Material.WATER_BUCKET), new MaterialData(Material.ICE), new MaterialData(Material.SNOW_BLOCK), new MaterialData(Material.SNOW_BLOCK)};
 	}
 
 	@Override
 	public String getLore() {
-		return "Shoots a snowball";
+		return "Cold here";
 	}
 
 	@Override
 	public String getName() {
-		return "SnowBall";
+		return "Snow";
 	}
 
 	@Override
