@@ -2,6 +2,7 @@ package de.nnl.devathlon_3.spellbook;
 
 import java.util.HashSet;
 
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
@@ -18,7 +19,8 @@ public class TeleportSpell implements Spell{
 	@Override
 	public void onRightClick(Player p) {
 		Block b = p.getTargetBlock((HashSet<Byte>) null, 50);
-		p.teleport(b.getLocation());
+		Location l = new Location(b.getWorld(), b.getX(), b.getY() + 1, b.getZ(), p.getLocation().getYaw(), p.getLocation().getPitch());
+		p.teleport(l);
 	}
 	
 	@Override
