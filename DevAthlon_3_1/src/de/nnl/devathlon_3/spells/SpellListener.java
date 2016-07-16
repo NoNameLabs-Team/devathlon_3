@@ -31,13 +31,14 @@ public class SpellListener implements Listener {
 		ItemStack i = e.getItem();
 		Player p = e.getPlayer();
 		
+		//RightClick => Spell
 		if (i != null && e.getAction() == Action.RIGHT_CLICK_AIR || e.getAction() == Action.RIGHT_CLICK_BLOCK) {
 			Spell s = spellHandler.getSpell(i);
 			
 			if (s != null) {
 				e.setCancelled(true);
 				
-				if (manaHandler.useSpell(s, p)) {
+				if (manaHandler.canUseSpell(s, p)) {
 					if (s.onRightClick(p)) {
 						if (!s.isReusable()) {
 							if (i.getAmount() > 1) {
@@ -48,18 +49,21 @@ public class SpellListener implements Listener {
 							}
 						}
 						
-						//TODO: BETTER SOUND!
+						//SUCCESS
 						p.playSound(p.getLocation(), Sound.BLOCK_NOTE_HAT, 0.5f, 0.5f);
 						manaHandler.addMana(p, -s.getManaCost());
 					} else {
+						//FAILURE
 						p.playSound(p.getLocation(), Sound.BLOCK_LAVA_POP, 0.5f, 0.5f);
 					}				
 				} else {
+					//FAILURE
 					p.playSound(p.getLocation(), Sound.BLOCK_LAVA_POP, 0.5f, 0.5f);
 				}
 			}
 		}
 		
+		//Recipe-Inventory
 		if (i != null && i.getType() == Material.BOOK && i.equals(RecipeUtil.createRecipeBook())) {
 			e.setCancelled(true);
 			p.openInventory(RecipeUtil.createRecipeInventory(spellHandler));
@@ -71,6 +75,7 @@ public class SpellListener implements Listener {
 		Inventory inv = event.getInventory();
 		ItemStack item = event.getCurrentItem();
 		
+		//Recipe-Inventory pages
 		if (item != null && inv.getName().equals("Rezepte")) {
 			event.setCancelled(true);
 			

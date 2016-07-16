@@ -39,6 +39,16 @@ public class Util {
 		return DyeColor.BLACK;
 	}
 	
+	/**
+	 * Calculates the distance of two blocks
+	 * @param x1
+	 * @param y1
+	 * @param z1
+	 * @param x2
+	 * @param y2
+	 * @param z2
+	 * @return
+	 */
 	public static double distance(int x1, int y1, int z1, int x2, int y2, int z2){
 		return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2) + Math.pow(z2 - z1, 2));
 	}

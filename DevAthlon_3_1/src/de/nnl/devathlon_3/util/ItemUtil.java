@@ -8,6 +8,13 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 public class ItemUtil {
 	
+	/**
+	 * Creates itemstack with custom name
+	 * @param material
+	 * @param amount
+	 * @param name
+	 * @return
+	 */
 	public static ItemStack createItemStack(Material material, int amount, String name) {
 		ItemStack is = new ItemStack(material, amount);
 		
@@ -18,6 +25,10 @@ public class ItemUtil {
 		return is;
 	}
 	
+	/**
+	 * Adds an invisible Enchanted effect to an itemstack
+	 * @param is
+	 */
 	public static void addEnchantedEffect(ItemStack is) {
 		ItemMeta im = is.getItemMeta();
 		im.addEnchant(Enchantment.DIG_SPEED, 1, true);

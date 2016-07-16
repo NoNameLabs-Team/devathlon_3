@@ -11,7 +11,11 @@ import org.bukkit.inventory.meta.ItemMeta;
 import de.nnl.devathlon_3.spells.Spell;
 
 public class SpellUtil {
-	
+	/**
+	 * Creates an item stack from a spell
+	 * @param s
+	 * @return
+	 */
 	public static ItemStack buildItem(Spell s) {
 		ItemStack is = new ItemStack(s.isReusable() ? Material.BOOK :  Material.PAPER);
 		ItemMeta im = is.getItemMeta();

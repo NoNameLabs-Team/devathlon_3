@@ -16,6 +16,12 @@ import de.nnl.devathlon_3.spells.Spell;
 import de.nnl.devathlon_3.spells.SpellHandler;
 
 public class RecipeUtil {
+	/**
+	 * Creates a shaped recipe from a spell
+	 * @param s
+	 * @param item
+	 * @return
+	 */
 	public static ShapedRecipe buildRecipe(Spell s, ItemStack item) {
 		ShapedRecipe recipe = new ShapedRecipe(item);
 		
@@ -41,7 +47,10 @@ public class RecipeUtil {
 		return recipe;
 	}
 
-	
+	/**
+	 * Creates the Spell Recipe Book
+	 * @return
+	 */
 	public static ItemStack createRecipeBook() {
 		ItemStack book = new ItemStack(Material.BOOK);
 		ItemMeta bm = book.getItemMeta();
@@ -56,6 +65,11 @@ public class RecipeUtil {
 		return book;
 	}
 	
+	/**
+	 * Creates a spell recipe inventory
+	 * @param sp
+	 * @return
+	 */
 	public static Inventory createRecipeInventory(SpellHandler sp) {
 		Inventory inv = Bukkit.createInventory(null, 9*3, "Rezepte");
 		
@@ -64,6 +78,12 @@ public class RecipeUtil {
 		return inv;
 	}
 	
+	/**
+	 * Applies a spezific page to the spell recipe inventory
+	 * @param sp
+	 * @param page
+	 * @param inv
+	 */
 	public static void applyRecipePageToInventory(SpellHandler sp, int page, Inventory inv) {
 		List<ShapedRecipe> recipes = sp.getRecipes();
 		if (recipes.size()+1 > page) {

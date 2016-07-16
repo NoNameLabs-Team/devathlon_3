@@ -22,6 +22,10 @@ public class SpellHandler {
 		recipes = new ArrayList<ShapedRecipe>();
 	}
 	
+	/**
+	 * Add a spell to the game
+	 * @param s the Spell
+	 */
 	public void addSpell(Spell s) {
 		ItemStack i = SpellUtil.buildItem(s);
 		spells.put(i, s);
@@ -31,6 +35,11 @@ public class SpellHandler {
 		Bukkit.getServer().addRecipe(r);
 	}
 	
+	/**
+	 * Get a Spell from an itemstack
+	 * @param i the ItemStack
+	 * @return the spell if one exists or null
+	 */
 	public Spell getSpell(ItemStack i) {
 		try {
 			ItemStack i2 = i.clone();
@@ -42,6 +51,11 @@ public class SpellHandler {
 		return null;
 	}
 	
+	/**
+	 * Get an itemstack from a spell
+	 * @param s the Spell
+	 * @return the itemstack if one exists or null
+	 */
 	public ItemStack getItem(Spell s) {
 		try {
 			for(ItemStack i: spells.keySet()){
@@ -52,6 +66,9 @@ public class SpellHandler {
 		return null;
 	}
 	
+	/**
+	 * @return A list of all registered spell-recipes
+	 */
 	public List<ShapedRecipe> getRecipes() {
 		return recipes;
 	}

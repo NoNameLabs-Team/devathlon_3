@@ -35,6 +35,7 @@ public class Plugin_Magic extends JavaPlugin{
 		spellHandler = new SpellHandler();
 		manaHandler = new ManaHandler(this);
 		
+		//Register Spells
 		spellHandler.addSpell(new CakeSpell());
 		spellHandler.addSpell(new TeleportSpell());
 		spellHandler.addSpell(new TreeSpell());
@@ -50,11 +51,15 @@ public class Plugin_Magic extends JavaPlugin{
 		spellHandler.addSpell(new ManaSpell(manaHandler));
 		
 		spellListener = new SpellListener(spellHandler, manaHandler);
+		
+		//register Listener
 		Bukkit.getPluginManager().registerEvents(spellListener, this);
 		Bukkit.getPluginManager().registerEvents(manaHandler, this);
 	}
 	
 	public void onDisable() {
+		//Reset everything
+		
 		manaHandler.saveMana();
 		
 		HandlerList.unregisterAll(spellListener);

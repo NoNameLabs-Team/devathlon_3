@@ -34,7 +34,7 @@ public class ManaHandler implements Listener {
 		max_mana = new HashMap<String, Integer>();
 		mana = new HashMap<String, Integer>();
 		
-
+		//Load mana data from file
 		File f = new File(plugin.getDataFolder(), "mana.yml");
 		if (f.exists()) {
 			YamlConfiguration config = YamlConfiguration.loadConfiguration(f);
@@ -55,6 +55,7 @@ public class ManaHandler implements Listener {
 			} catch (IOException e) {}
 		}
 		
+		//Mana regeneration
 		taskID = Bukkit.getScheduler().scheduleSyncRepeatingTask(plugin, new Runnable() {
 			
 			@Override
@@ -69,6 +70,8 @@ public class ManaHandler implements Listener {
 	public void saveMana() {
 		Bukkit.getScheduler().cancelTask(taskID);
 		
+		
+		//Save mana to file
 		File f = new File(plugin.getDataFolder(), "mana.yml");
 		
 		if (f.exists()) {
@@ -106,7 +109,7 @@ public class ManaHandler implements Listener {
 		updateMana(p);
 	}
 	
-	public boolean useSpell(Spell s, Player p) {
+	public boolean canUseSpell(Spell s, Player p) {
 		if (s.getManaCost() <= mana.get(p.getName())) {
 			return true;
 		}
@@ -132,6 +135,12 @@ public class ManaHandler implements Listener {
 		sendManaBar(p, mana.get(p.getName()), max_mana.get(p.getName()));
 	}
 	
+	/**
+	 * Sends a second bar 
+	 * @param player
+	 * @param mana
+	 * @param max_mana
+	 */
 	public static void sendManaBar(Player player, int mana, int max_mana) {
         CraftPlayer p = (CraftPlayer) player;
         
