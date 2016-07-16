@@ -17,7 +17,7 @@ public class ManaSpell implements Spell {
 	
 	@Override
 	public MaterialData[] getIngredients() {
-		return new MaterialData[] {new MaterialData(Material.RED_ROSE), new MaterialData(Material.RED_ROSE), new MaterialData(Material.CARROT), new MaterialData(Material.APPLE), new MaterialData(Material.POTATO), new MaterialData(Material.YELLOW_FLOWER), new MaterialData(Material.YELLOW_FLOWER)};
+		return new MaterialData[] {new MaterialData(Material.RED_ROSE), new MaterialData(Material.RED_ROSE), new MaterialData(Material.CARROT_ITEM), new MaterialData(Material.APPLE), new MaterialData(Material.POTATO_ITEM), new MaterialData(Material.YELLOW_FLOWER), new MaterialData(Material.YELLOW_FLOWER)};
 	}
 
 	@Override

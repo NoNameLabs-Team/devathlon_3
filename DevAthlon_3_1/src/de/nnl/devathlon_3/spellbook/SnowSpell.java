@@ -39,7 +39,7 @@ public class SnowSpell implements Spell{
 
 	@Override
 	public boolean onRightClick(Player p) {
-		p.getWorld().spigot().playEffect(p.getLocation(), Effect.EXTINGUISH, 0, 0, 0, 0, 0, 1, 200, 4);
+		p.getWorld().playEffect(p.getLocation(), Effect.EXTINGUISH, 1);
 		
 		for(int x = p.getLocation().getBlockX() - 4; x < p.getLocation().getBlockX() + 4; x++){
 			for(int y = p.getLocation().getBlockY() - 1; y < p.getLocation().getBlockY() + 1; y++){
