@@ -9,6 +9,7 @@ import de.nnl.devathlon_3.spells.Spell;
 
 public class HealSpell_LV1 implements Spell{
 
+	//DA
 	public HealSpell_LV1(){
 		
 	}
