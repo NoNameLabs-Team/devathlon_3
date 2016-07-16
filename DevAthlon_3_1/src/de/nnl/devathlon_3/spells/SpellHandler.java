@@ -1,5 +1,6 @@
 package de.nnl.devathlon_3.spells;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -72,7 +73,7 @@ public class SpellHandler {
 		
 		for (int i = 0; i < 7; i++) {
 			if (ingredients.length > i && ingredients[i] != null) {
-				recipe.setIngredient((char)(i + 'a' - 1), ingredients[i]);
+				recipe.setIngredient((char)(i + 'a'), ingredients[i]);
 			}
 		}
 		
@@ -83,10 +84,9 @@ public class SpellHandler {
 		ItemStack is = new ItemStack(s.isReusable() ? Material.BOOK :  Material.PAPER);
 		ItemMeta im = is.getItemMeta();
 		im.setDisplayName(ChatColor.DARK_PURPLE + s.getName());
-		List<String> lore_list = im.getLore();
-		lore_list.clear();
+		List<String> lore_list = new ArrayList<String>();
 		lore_list.add(ChatColor.LIGHT_PURPLE + s.getLore());
-		lore_list.add(ChatColor.GREEN + "Exp Cost: " + s.getExpCost());
+		lore_list.add(ChatColor.GREEN + "Exp Cost: " + s.getExpCost() + " Level");
 		
 		im.setLore(lore_list);
 		is.setItemMeta(im);

@@ -24,12 +24,12 @@ public class Plugin_Magic extends JavaPlugin{
 			
 			@Override
 			public void onRightClick(Player p) {
-				p.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 10, 2));
+				p.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 2000, 2));
 			}
 			
 			@Override
 			public boolean isReusable() {
-				return true;
+				return false;
 			}
 			
 			@Override
@@ -39,7 +39,7 @@ public class Plugin_Magic extends JavaPlugin{
 			
 			@Override
 			public String getLore() {
-				return "Speeds you up for 10 Seconds";
+				return "Speeds you up for 100 Seconds";
 			}
 			
 			@Override
