@@ -8,6 +8,7 @@ import org.bukkit.event.HandlerList;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import de.nnl.devathlon_3.mana.ManaHandler;
+import de.nnl.devathlon_3.spellbook.ArrowSpell;
 import de.nnl.devathlon_3.spellbook.CakeSpell;
 import de.nnl.devathlon_3.spellbook.ColorSwap;
 import de.nnl.devathlon_3.spellbook.FelSpell;
@@ -40,6 +41,7 @@ public class Plugin_Magic extends JavaPlugin{
 		spellHandler.addSpell(new LighteningSpell());
 		spellHandler.addSpell(new ColorSwap());
 		spellHandler.addSpell(new FelSpell());
+		spellHandler.addSpell(new ArrowSpell(this));
 		spellHandler.addSpell(new LevelToManaSpell(manaHandler));
 		spellHandler.addSpell(new ManaSpell(manaHandler));
 		
