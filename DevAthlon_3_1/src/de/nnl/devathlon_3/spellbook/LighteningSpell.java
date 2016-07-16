@@ -8,6 +8,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.material.MaterialData;
 
 import de.nnl.devathlon_3.spells.Spell;
+import de.nnl.devathlon_3.util.Util;
 
 public class LighteningSpell implements Spell{
 
@@ -43,7 +44,18 @@ public class LighteningSpell implements Spell{
 	public boolean onRightClick(Player p) {
 		Location loc = p.getTargetBlock((HashSet<Byte>)null, 100).getLocation();
 		p.getWorld().spigot().strikeLightning(loc, false);
-		p.getWorld().getBlockAt(loc).setType(Material.FIRE);
+		
+		for(int x = loc.getBlockX() - (Util.RANDOM.nextInt(10)); x < loc.getBlockX() + Util.RANDOM.nextInt(15); x++){
+			for(int y = loc.getBlockY() - (Util.RANDOM.nextInt(12)); y < loc.getBlockY() + Util.RANDOM.nextInt(8); y++){
+				for(int z = loc.getBlockZ() - (Util.RANDOM.nextInt(11)); z < loc.getBlockZ() + + Util.RANDOM.nextInt(12); z++){
+					
+					if(Util.distance(x, y, z, p.getLocation().getBlockX(), p.getLocation().getBlockY(), p.getLocation().getBlockZ()) <= 6.0 + Util.RANDOM.nextInt(8)){
+						loc.getBlock().setType(Material.FIRE);
+					}
+					
+				}
+			}
+		}
 		return true;
 	}
 
