@@ -9,6 +9,8 @@ import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Wither;
 import org.bukkit.material.MaterialData;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 
 import de.nnl.devathlon_3.spells.Spell;
 import de.nnl.devathlon_3.util.Util;
@@ -47,6 +49,8 @@ public class FelSpell implements Spell{
 	@Override
 	public boolean onRightClick(Player p) {
 		
+		p.addPotionEffect(new PotionEffect(PotionEffectType.WEAKNESS, 20 * 210, 3));
+		
 		for(Entity entity : p.getWorld().getEntities()){
             if(entity instanceof LivingEntity){
             	if(!(entity instanceof Player) && !(entity instanceof EnderDragon) && !(entity instanceof Wither))if(Util.distance(p.getLocation().getBlockX(), p.getLocation().getBlockY(), p.getLocation().getBlockZ(), entity.getLocation().getBlockX(), entity.getLocation().getBlockY(), entity.getLocation().getBlockZ()) <= 12.0)((LivingEntity) entity).setHealth(0);
@@ -66,10 +70,14 @@ public class FelSpell implements Spell{
 						}
 						else if(b.getType() == Material.DIRT)b.setData((byte) 1);
 						else if(b.getType() == Material.SAPLING || b.getType() == Material.YELLOW_FLOWER|| b.getType() == Material.RED_ROSE|| b.getType() == Material.YELLOW_FLOWER)b.setType(Material.DEAD_BUSH);
-						else if(b.getType() == Material.DOUBLE_PLANT)b.setData((byte) 3);
-						else if(b.getType() == Material.LOG ||b.getType() == Material.VINE || b.getType() == Material.LOG_2 || b.getType() == Material.LEAVES || b.getType() == Material.LEAVES_2)b.setType(Material.AIR);
+						else if(b.getType() == Material.DOUBLE_PLANT)b.setType(Material.REDSTONE);
+						else if(b.getType() == Material.LOG || b.getType() == Material.LOG_2)b.setType(Material.BONE_BLOCK);
+						else if(b.getType() == Material.LEAVES || b.getType() == Material.WATER_LILY ||b.getType() == Material.VINE || b.getType() == Material.LEAVES_2)b.setType(Material.AIR);
 						else if(b.getType() == Material.STONE) b.setType(Material.COBBLESTONE);
+						else if(b.getType() == Material.LONG_GRASS)b.setType(Material.WEB);
 						else if(b.getType() == Material.SAND || b.getType() == Material.GRAVEL) b.setType(Material.SOUL_SAND);
+						else if(b.getType() == Material.WATER)b.setType(Material.LAVA);
+						else if(b.getType() == Material.STATIONARY_WATER) b.setType(Material.STATIONARY_LAVA);
 					}
 					
 				}
