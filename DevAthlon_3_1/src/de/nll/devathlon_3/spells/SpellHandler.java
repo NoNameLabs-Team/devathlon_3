@@ -1,17 +1,45 @@
 package de.nll.devathlon_3.spells;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.inventory.meta.ItemMeta;
 
-public class SpellHandler {
+public class SpellHandler {	
 	
-	public static ShapedRecipe buildRecipe(Spell s) {
-		ShapedRecipe recipe = new ShapedRecipe(buildItem(s));
+	private Map<ItemStack, Spell> spells;
+	
+	public SpellHandler() {
+		spells = new HashMap<ItemStack, Spell>();
+	}
+	
+	public void addSpell(Spell s) {
+		ItemStack i = buildItem(s);
+		spells.put(i, s);
+		
+		Bukkit.getServer().addRecipe(buildRecipe(s, i));
+	}
+	
+	public Spell getSpell(ItemStack i) {
+		
+	}
+	
+	public ItemStack getItem(Spell s) {
+		
+	}
+	
+	public void removeSpell(Spell s) {
+		
+	}
+	
+	public static ShapedRecipe buildRecipe(Spell s, ItemStack item) {
+		ShapedRecipe recipe = new ShapedRecipe(item);
 		
 		Material[] ingredients = s.getIngredients();
 		
