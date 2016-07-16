@@ -44,8 +44,6 @@ public class TreeSpell implements Spell{
 	@Override
 	public boolean onRightClick(Player p) {
 		Block b = p.getTargetBlock((HashSet<Byte>) null, 15);
-	
-		p.getWorld().spigot().playEffect(b.getLocation(), Effect.CLOUD, 1, 0, 0, 0, 0, 0.1f, 10, 18);
 		
 		Location l;
 		if(b.getType() != Material.AIR)l = new Location(b.getWorld(), b.getX(), b.getY(), b.getZ());
@@ -95,7 +93,11 @@ public class TreeSpell implements Spell{
 			break;
 		}
 		
-		return l.getBlock().getWorld().generateTree(l, type);
+		if(l.getBlock().getWorld().generateTree(l, type)){
+			p.getWorld().spigot().playEffect(b.getLocation(), Effect.CLOUD, 1, 0, 0, 0, 0, 0.1f, 10, 18);
+			return true;
+		}
+		else return false;
 		
 	}
 

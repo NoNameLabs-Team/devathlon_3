@@ -25,6 +25,7 @@ public class SpellListener implements Listener {
 		this.manaHandler = manaHandler;
 	}
 		
+	@SuppressWarnings("deprecation")
 	@EventHandler
 	public void onPlayerInteract(PlayerInteractEvent e) {
 		ItemStack i = e.getItem();
@@ -40,7 +41,13 @@ public class SpellListener implements Listener {
 					if (s.onRightClick(p)) {
 						if (!s.isReusable()) {
 							if (i.getAmount() == 1) {
-								p.getInventory().remove(i);
+								
+								for(int i2 = 0; i2 < 9; i2 ++){
+									if(p.getInventory().getItem(i2).equals(i)){
+										p.getInventory().remove(i2);
+									}
+								}
+								
 							} else {
 								i.setAmount(i.getAmount() - 1);
 							}
