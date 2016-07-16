@@ -41,8 +41,10 @@ public class FireSpell implements Spell{
 	}
 
 	@Override
-	public void onRightClick(Player p) {
+	public boolean onRightClick(Player p) {
 		ProjectileUtil.fireProjectile(p, EntityType.FIREBALL, 2.0, 0.0);
+		
+		return true;
 	}
 	
 }

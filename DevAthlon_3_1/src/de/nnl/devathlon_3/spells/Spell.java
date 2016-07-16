@@ -15,5 +15,5 @@ public interface Spell {
 	
 	public int getManaCost();
 		
-	public void onRightClick(Player p);
+	public boolean onRightClick(Player p);
 }

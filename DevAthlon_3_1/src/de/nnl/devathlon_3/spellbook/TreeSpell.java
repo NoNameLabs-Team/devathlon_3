@@ -40,7 +40,7 @@ public class TreeSpell implements Spell{
 
 	@SuppressWarnings("deprecation")
 	@Override
-	public void onRightClick(Player p) {
+	public boolean onRightClick(Player p) {
 		Block b = p.getTargetBlock((HashSet<Byte>) null, 15);
 	
 		Location l;
@@ -91,7 +91,7 @@ public class TreeSpell implements Spell{
 			break;
 		}
 		
-		l.getBlock().getWorld().generateTree(l, type);
+		return l.getBlock().getWorld().generateTree(l, type);
 		
 	}
 

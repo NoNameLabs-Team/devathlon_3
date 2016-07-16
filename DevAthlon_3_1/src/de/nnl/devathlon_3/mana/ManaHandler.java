@@ -108,8 +108,6 @@ public class ManaHandler implements Listener {
 	
 	public boolean useSpell(Spell s, Player p) {
 		if (s.getManaCost() <= mana.get(p.getName())) {
-			mana.put(p.getName(), mana.get(p.getName()) - s.getManaCost());
-			updateMana(p);
 			return true;
 		}
 		return false;
@@ -121,11 +119,14 @@ public class ManaHandler implements Listener {
 	}
 	
 	public void addMaximumMana(Player p, int amount) {
-		max_mana.put(p.getName(), max_mana.get(p.getName()) + amount);
+		max_mana.put(p.getName(), Math.max(1, max_mana.get(p.getName()) + amount));
 		updateMana(p);
 	}
 	
 	public void updateMana(Player p) {
+		if (mana.get(p.getName()) > max_mana.get(p.getName())) mana.put(p.getName(), max_mana.get(p.getName()));
+		if (mana.get(p.getName()) < 0) mana.put(p.getName(), 0);
+		
 		sendManaBar(p, mana.get(p.getName()), max_mana.get(p.getName()));
 	}
 	
@@ -134,13 +135,13 @@ public class ManaHandler implements Listener {
         
         String text = ChatColor.AQUA + "" + mana + " [" + ChatColor.RED;
         
-        for (int i = 0; i < (40*mana)/max_mana; i++) {
+        for (int i = 0; i < (50*mana)/max_mana; i++) {
         	text += "|";
         }
         
         text += ChatColor.WHITE;
         
-        for (int i = 0; i < 40 - (40*mana)/max_mana; i++) {
+        for (int i = 0; i < 50 - (50*mana)/max_mana; i++) {
         	text += "|";
         }
         

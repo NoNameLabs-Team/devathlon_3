@@ -18,10 +18,12 @@ public class TeleportSpell implements Spell{
 	
 	@SuppressWarnings("deprecation")
 	@Override
-	public void onRightClick(Player p) {
+	public boolean onRightClick(Player p) {
 		Block b = p.getTargetBlock((HashSet<Byte>) null, 50);
 		Location l = new Location(b.getWorld(), b.getX(), b.getY() + 1, b.getZ(), p.getLocation().getYaw(), p.getLocation().getPitch());
 		p.teleport(l);
+		
+		return true;
 	}
 	
 	@Override

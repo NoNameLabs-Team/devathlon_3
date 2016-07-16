@@ -37,18 +37,21 @@ public class SpellListener implements Listener {
 				e.setCancelled(true);
 				
 				if (manaHandler.useSpell(s, p)) {
-					
-					if (!s.isReusable()) {
-						if (i.getAmount() == 1) {
-							p.getInventory().remove(i);
-						} else {
-							i.setAmount(i.getAmount() - 1);
+					if (s.onRightClick(p)) {
+						if (!s.isReusable()) {
+							if (i.getAmount() == 1) {
+								p.getInventory().remove(i);
+							} else {
+								i.setAmount(i.getAmount() - 1);
+							}
 						}
-					}
-					
-					//TODO: BETTER SOUND!
-					p.playSound(p.getLocation(), Sound.BLOCK_NOTE_HAT, 0.5f, 0.5f);
-					s.onRightClick(p);
+						
+						//TODO: BETTER SOUND!
+						p.playSound(p.getLocation(), Sound.BLOCK_NOTE_HAT, 0.5f, 0.5f);
+						manaHandler.addMana(p, -s.getManaCost());
+					} else {
+						p.playSound(p.getLocation(), Sound.BLOCK_LAVA_POP, 0.5f, 0.5f);
+					}				
 				} else {
 					p.playSound(p.getLocation(), Sound.BLOCK_LAVA_POP, 0.5f, 0.5f);
 				}

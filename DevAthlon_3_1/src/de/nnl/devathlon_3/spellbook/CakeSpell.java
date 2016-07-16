@@ -39,8 +39,10 @@ public class CakeSpell implements Spell{
 	}
 
 	@Override
-	public void onRightClick(Player p) {
+	public boolean onRightClick(Player p) {
 		p.sendMessage(ChatColor.RED + "The cake is a lie");
+		
+		return true;
 	}
 
 }

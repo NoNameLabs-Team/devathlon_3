@@ -37,7 +37,7 @@ public class WaterSpell implements Spell{
 	}
 
 	@Override
-	public void onRightClick(Player p) {
+	public boolean onRightClick(Player p) {
 		for(int x = p.getLocation().getBlockX() - 4; x < p.getLocation().getBlockX() + 4; x++){
 			for(int y = p.getLocation().getBlockY() - 1; y < p.getLocation().getBlockY() + 1; y++){
 				for(int z = p.getLocation().getBlockZ() - 4; z < p.getLocation().getBlockZ() + 4; z++){
@@ -51,6 +51,8 @@ public class WaterSpell implements Spell{
 				}
 			}
 		}
+		
+		return true;
 	}
 	
 }
