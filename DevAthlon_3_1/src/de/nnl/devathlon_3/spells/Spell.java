@@ -1,4 +1,4 @@
-package de.nll.devathlon_3.spells;
+package de.nnl.devathlon_3.spells;
 
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
