@@ -2,3 +2,7 @@ name: MagicSpells
 main: de.nnl.devathlon_3.magic.Plugin_Magic
 version: 0.1
 author: PhoenixofForce and Nottrex
+commands:
+  rezepte:
+    description: Gibt dem Spieler ein Buch mit allen Zauber-Rezepten
+    usage: /rezepte

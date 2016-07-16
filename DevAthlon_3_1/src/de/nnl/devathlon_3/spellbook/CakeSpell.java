@@ -13,7 +13,7 @@ public class CakeSpell implements Spell{
 	
 	@Override
 	public Material[] getIngredients() {
-		return new Material[] {Material.MILK_BUCKET, Material.MILK_BUCKET, Material.SUGAR, Material.SUGAR, Material.CAKE, Material.WHEAT, Material.WHEAT};
+		return new Material[] {Material.MILK_BUCKET, Material.MILK_BUCKET, Material.SUGAR, Material.CAKE, Material.SUGAR, Material.WHEAT, Material.WHEAT};
 	}
 
 	@Override

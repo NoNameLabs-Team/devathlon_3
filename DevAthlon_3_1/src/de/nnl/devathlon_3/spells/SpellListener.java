@@ -1,6 +1,7 @@
 package de.nnl.devathlon_3.spells;
 
-import org.bukkit.ChatColor;
+import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -30,12 +31,19 @@ public class SpellListener implements Listener {
 				if (s.getExpCost() <= p.getLevel()) {
 					p.setLevel(p.getLevel() - s.getExpCost());
 					
-					if (!s.isReusable()) i.setAmount(i.getAmount() - 1);
+					if (!s.isReusable()) {
+						if (i.getAmount() == 1) {
+							//TODO: REMOVE ITEM
+						} else {
+							i.setAmount(i.getAmount() - 1);
+						}
+					}
 					
+					//TODO: BETTER SOUND!w
+					p.playSound(p.getLocation(), Sound.BLOCK_NOTE_HAT, 0.5f, 0.5f);
 					s.onRightClick(p);
-					p.sendMessage(ChatColor.GREEN + "Du hast " + s.getName() + " benutzt! :D");
 				} else {
-					p.sendMessage(ChatColor.RED + "Nicht genug Level!");
+					p.playSound(p.getLocation(), Sound.BLOCK_LAVA_POP, 0.5f, 0.5f);
 				}
 			}
 		}

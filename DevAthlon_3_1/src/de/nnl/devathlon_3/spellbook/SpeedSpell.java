@@ -20,7 +20,7 @@ public class SpeedSpell implements Spell{
 	
 	@Override
 	public boolean isReusable() {
-		return false;
+		return true;
 	}
 	
 	@Override
