@@ -2,6 +2,7 @@ package de.nnl.devathlon_3.spellbook;
 
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
+import org.bukkit.material.MaterialData;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
@@ -34,8 +35,8 @@ public class LightSpell implements Spell{
 	}
 	
 	@Override
-	public Material[] getIngredients() {
-		return new Material[] {Material.TORCH, Material.TORCH, Material.POTION, Material.BLAZE_ROD, Material.POTION, Material.GLOWSTONE_DUST, Material.GLOWSTONE_DUST};
+	public MaterialData[] getIngredients() {
+		return new MaterialData[] {new MaterialData(Material.TORCH), new MaterialData(Material.TORCH), new MaterialData(Material.POTION), new MaterialData(Material.BLAZE_ROD), new MaterialData(Material.POTION), new MaterialData(Material.GLOWSTONE_DUST), new MaterialData(Material.GLOWSTONE_DUST)};
 	}
 	
 	@Override

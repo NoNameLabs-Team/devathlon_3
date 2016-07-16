@@ -2,6 +2,7 @@ package de.nnl.devathlon_3.spellbook;
 
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
+import org.bukkit.material.MaterialData;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
@@ -38,8 +39,8 @@ public class HealSpell_LV1 implements Spell{
 	}
 	
 	@Override
-	public Material[] getIngredients() {
-		return new Material[] {Material.GHAST_TEAR, Material.GHAST_TEAR, Material.GOLDEN_CARROT, Material.GOLDEN_APPLE, Material.GOLDEN_CARROT, Material.SPECKLED_MELON, Material.SPECKLED_MELON};
+	public MaterialData[] getIngredients() {
+		return new MaterialData[] {new MaterialData(Material.GHAST_TEAR), new MaterialData(Material.GHAST_TEAR), new MaterialData(Material.GOLDEN_CARROT), new MaterialData(Material.GOLDEN_APPLE), new MaterialData(Material.GOLDEN_CARROT), new MaterialData(Material.SPECKLED_MELON), new MaterialData(Material.SPECKLED_MELON)};
 	}
 	
 	@Override

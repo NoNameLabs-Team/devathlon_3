@@ -2,6 +2,7 @@ package de.nnl.devathlon_3.spellbook;
 
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
+import org.bukkit.material.MaterialData;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
@@ -34,8 +35,8 @@ public class SpeedSpell implements Spell{
 	}
 	
 	@Override
-	public Material[] getIngredients() {
-		return new Material[] {Material.SUGAR, Material.SUGAR, Material.IRON_BOOTS, null, Material.IRON_BOOTS, Material.SUGAR, Material.SUGAR};
+	public MaterialData[] getIngredients() {
+		return new MaterialData[] {new MaterialData(Material.SUGAR), new MaterialData(Material.SUGAR), new MaterialData(Material.IRON_BOOTS), null, new MaterialData(Material.IRON_BOOTS), new MaterialData(Material.SUGAR), new MaterialData(Material.SUGAR)};
 	}
 	
 	@Override
