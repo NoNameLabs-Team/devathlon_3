@@ -10,7 +10,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import de.nnl.devathlon_3.mana.ManaHandler;
 import de.nnl.devathlon_3.spellbook.CakeSpell;
 import de.nnl.devathlon_3.spellbook.ColorSwap;
-import de.nnl.devathlon_3.spellbook.Fel;
+import de.nnl.devathlon_3.spellbook.FelSpell;
 import de.nnl.devathlon_3.spellbook.FireSpell;
 import de.nnl.devathlon_3.spellbook.LevelToManaSpell;
 import de.nnl.devathlon_3.spellbook.ManaSpell;
@@ -37,7 +37,7 @@ public class Plugin_Magic extends JavaPlugin{
 		spellHandler.addSpell(new FireSpell());
 		spellHandler.addSpell(new SnowSpell());
 		spellHandler.addSpell(new ColorSwap());
-		spellHandler.addSpell(new Fel());
+		spellHandler.addSpell(new FelSpell());
 		spellHandler.addSpell(new LevelToManaSpell(manaHandler));
 		spellHandler.addSpell(new ManaSpell(manaHandler));
 		
