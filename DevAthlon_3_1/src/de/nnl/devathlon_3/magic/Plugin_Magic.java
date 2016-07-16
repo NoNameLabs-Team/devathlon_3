@@ -53,6 +53,9 @@ public class Plugin_Magic extends JavaPlugin{
 			if (p.isOp() && commandlabel.equalsIgnoreCase("rezepte")) {
 				p.getInventory().addItem(RecipeUtil.createRecipeBook());
 				return true;
+			} else if (p.isOp() && commandlabel.equalsIgnoreCase("mana")) {
+				manaHandler.addMaximumMana(p, Integer.valueOf(args[0]));
+				return true;
 			}
 		}
 		return false;

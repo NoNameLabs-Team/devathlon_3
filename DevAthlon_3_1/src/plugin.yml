@@ -6,3 +6,6 @@ commands:
   rezepte:
     description: Gibt dem Spieler ein Buch mit allen Zauber-Rezepten
     usage: /rezepte
+  mana:
+    description: Erhoeht das maximale Mana
+    usage: /mana <amount>
