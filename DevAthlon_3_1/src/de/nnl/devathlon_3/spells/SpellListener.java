@@ -71,7 +71,8 @@ public class SpellListener implements Listener {
 			int currpage = Integer.valueOf(inv.getItem(8).getItemMeta().getDisplayName().split(" ")[0]);
 			
 			if(event.getSlot() == 13 && event.getWhoClicked().getGameMode() == GameMode.CREATIVE){
-				event.getWhoClicked().getInventory().addItem(RecipeUtil.createRecipeInventory(spellHandler).getItem(13));
+				
+				event.getWhoClicked().getInventory().addItem(event.getClickedInventory().getItem(13));
 			}
 			
 			if (item.equals(Util.createItemStack(Material.GLOWSTONE_DUST, 1, "Vorherige Seite"))) {
