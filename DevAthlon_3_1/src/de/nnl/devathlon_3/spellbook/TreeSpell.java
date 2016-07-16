@@ -42,7 +42,10 @@ public class TreeSpell implements Spell{
 	@Override
 	public void onRightClick(Player p) {
 		Block b = p.getTargetBlock((HashSet<Byte>) null, 15);
-		Location l = new Location(b.getWorld(), b.getX(), b.getY(), b.getZ());
+	
+		Location l;
+		if(b.getType() != Material.AIR)l = new Location(b.getWorld(), b.getX(), b.getY(), b.getZ());
+		else l = new Location(b.getWorld(), b.getX(), b.getY() + 1, b.getZ());
 		TreeType type = TreeType.TREE;
 		
 		switch(Util.RANDOM.nextInt(12)){
