@@ -13,6 +13,7 @@ import de.nnl.devathlon_3.spellbook.ColorSwap;
 import de.nnl.devathlon_3.spellbook.FelSpell;
 import de.nnl.devathlon_3.spellbook.FireSpell;
 import de.nnl.devathlon_3.spellbook.LevelToManaSpell;
+import de.nnl.devathlon_3.spellbook.LighteningSpell;
 import de.nnl.devathlon_3.spellbook.ManaSpell;
 import de.nnl.devathlon_3.spellbook.TeleportSpell;
 import de.nnl.devathlon_3.spellbook.TreeSpell;
@@ -36,6 +37,7 @@ public class Plugin_Magic extends JavaPlugin{
 		spellHandler.addSpell(new TreeSpell());
 		spellHandler.addSpell(new FireSpell());
 		spellHandler.addSpell(new SnowSpell());
+		spellHandler.addSpell(new LighteningSpell());
 		spellHandler.addSpell(new ColorSwap());
 		spellHandler.addSpell(new FelSpell());
 		spellHandler.addSpell(new LevelToManaSpell(manaHandler));
