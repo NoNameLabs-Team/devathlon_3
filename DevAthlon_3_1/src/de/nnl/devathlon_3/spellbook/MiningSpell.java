@@ -1,17 +1,16 @@
 package de.nnl.devathlon_3.spellbook;
 
-import org.bukkit.DyeColor;
 import org.bukkit.Effect;
 import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.material.Dye;
 import org.bukkit.material.MaterialData;
 
 import de.nnl.devathlon_3.spells.Spell;
 import de.nnl.devathlon_3.util.Util;
+import net.minecraft.server.v1_10_R1.Item;
 
 public class MiningSpell implements Spell{
 
@@ -40,7 +39,7 @@ public class MiningSpell implements Spell{
 
 	@Override
 	public int getManaCost() {
-		return 5;
+		return 8;
 	}
 
 	@Override
@@ -75,7 +74,7 @@ public class MiningSpell implements Spell{
 							p.getInventory().addItem(new ItemStack(Material.COAL));
 						}
 						else if(b.getType() == Material.LAPIS_ORE){
-							ItemStack lapis = new ItemStack(Material.INK_SACK, 4);
+							ItemStack lapis = new ItemStack(Material.INK_SACK, 1, (short) 4);
 							isOre = true;
 							for(int i = 0; i < Util.RANDOM.nextInt(5) + 2; i++)p.getInventory().addItem(lapis);
 						}
