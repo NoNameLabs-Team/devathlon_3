@@ -40,7 +40,7 @@ public class LighteningSpell implements Spell{
 	@SuppressWarnings("deprecation")
 	@Override
 	public boolean onRightClick(Player p) {
-		p.getWorld().strikeLightning(p.getTargetBlock((HashSet<Byte>)null, 100).getLocation());
+		p.getWorld().spigot().strikeLightning(p.getTargetBlock((HashSet<Byte>)null, 100).getLocation(), false);
 		return true;
 	}
 
