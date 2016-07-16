@@ -22,7 +22,7 @@ public class LevelToMana implements Spell{
 
 	@Override
 	public String getLore() {
-		return "Converts 1 Level to 2 Mana";
+		return "Converts 5 Level to 2 Maximum Mana";
 	}
 
 	@Override
@@ -42,11 +42,10 @@ public class LevelToMana implements Spell{
 
 	@Override
 	public boolean onRightClick(Player p) {
-		if(p.getLevel() < 1){
+		if(p.getLevel() < 5) {
 			return false;
-		}else{
-			
-			p.setLevel(p.getLevel() - 1);
+		} else {
+			p.setLevel(p.getLevel() - 5);
 			mh.addMana(p, 2);
 			return true;
 			

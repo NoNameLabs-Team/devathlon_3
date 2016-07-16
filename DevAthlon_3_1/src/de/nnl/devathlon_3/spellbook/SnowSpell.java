@@ -1,5 +1,6 @@
 package de.nnl.devathlon_3.spellbook;
 
+import org.bukkit.Effect;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
@@ -7,9 +8,9 @@ import org.bukkit.material.MaterialData;
 
 import de.nnl.devathlon_3.spells.Spell;
 
-public class WaterSpell implements Spell{
+public class SnowSpell implements Spell{
 
-	public WaterSpell(){}
+	public SnowSpell(){}
 
 	@Override
 	public MaterialData[] getIngredients() {
@@ -38,6 +39,8 @@ public class WaterSpell implements Spell{
 
 	@Override
 	public boolean onRightClick(Player p) {
+		p.getWorld().spigot().playEffect(p.getLocation(), Effect.EXTINGUISH, 0, 0, 0, 0, 0, 1, 200, 4);
+		
 		for(int x = p.getLocation().getBlockX() - 4; x < p.getLocation().getBlockX() + 4; x++){
 			for(int y = p.getLocation().getBlockY() - 1; y < p.getLocation().getBlockY() + 1; y++){
 				for(int z = p.getLocation().getBlockZ() - 4; z < p.getLocation().getBlockZ() + 4; z++){
