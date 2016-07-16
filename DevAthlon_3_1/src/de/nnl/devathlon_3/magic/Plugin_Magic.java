@@ -1,14 +1,11 @@
 package de.nnl.devathlon_3.magic;
 
 import org.bukkit.Bukkit;
-import org.bukkit.Material;
-import org.bukkit.entity.Player;
 import org.bukkit.event.HandlerList;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.bukkit.potion.PotionEffect;
-import org.bukkit.potion.PotionEffectType;
 
-import de.nnl.devathlon_3.spells.Spell;
+import de.nnl.devathlon_3.spellbook.CakeSpell;
+import de.nnl.devathlon_3.spellbook.SpeedSpell;
 import de.nnl.devathlon_3.spells.SpellHandler;
 import de.nnl.devathlon_3.spells.SpellListener;
 
@@ -19,39 +16,9 @@ public class Plugin_Magic extends JavaPlugin{
 	
 	public void onEnable(){
 		spellHandler = new SpellHandler();
-		
-		spellHandler.addSpell(new Spell() {
-			
-			@Override
-			public void onRightClick(Player p) {
-				p.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 2000, 2));
-			}
-			
-			@Override
-			public boolean isReusable() {
-				return false;
-			}
-			
-			@Override
-			public String getName() {
-				return "Speed";
-			}
-			
-			@Override
-			public String getLore() {
-				return "Speeds you up for 100 Seconds";
-			}
-			
-			@Override
-			public Material[] getIngredients() {
-				return new Material[] {Material.SUGAR, Material.SUGAR, Material.IRON_BOOTS, null, Material.IRON_BOOTS, Material.SUGAR, Material.SUGAR};
-			}
-			
-			@Override
-			public int getExpCost() {
-				return 1;
-			}
-		});
+
+		spellHandler.addSpell(new CakeSpell());
+		spellHandler.addSpell(new SpeedSpell());
 		
 		spellListener = new SpellListener(spellHandler);
 		Bukkit.getPluginManager().registerEvents(spellListener, this);
