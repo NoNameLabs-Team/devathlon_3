@@ -39,7 +39,7 @@ public class WaterSpell implements Spell{
 
 	@Override
 	public void onRightClick(Player p) {
-		ProjectileUtil.fireProjectile(p, 10, 4, EntityType.SNOWBALL, 2.0, 0.0);
+		ProjectileUtil.fireProjectile(p, EntityType.SNOWBALL, 2.0, 0.0);
 		for(int x = p.getLocation().getBlockX() - 4; x < p.getLocation().getBlockX() + 4; x++){
 			for(int y = p.getLocation().getBlockY() - 4; y < p.getLocation().getBlockY() + 4; y++){
 				for(int z = p.getLocation().getBlockZ() - 4; z < p.getLocation().getBlockZ() + 4; z++){

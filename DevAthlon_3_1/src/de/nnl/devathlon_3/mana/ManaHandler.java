@@ -9,6 +9,7 @@ import net.minecraft.server.v1_10_R1.IChatBaseComponent;
 import net.minecraft.server.v1_10_R1.IChatBaseComponent.ChatSerializer;
 import net.minecraft.server.v1_10_R1.PacketPlayOutChat;
 
+import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.craftbukkit.v1_10_R1.entity.CraftPlayer;
 import org.bukkit.entity.Player;
@@ -17,11 +18,15 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.plugin.Plugin;
 
+import de.nnl.devathlon_3.spells.Spell;
+
 public class ManaHandler implements Listener {
 	private Plugin plugin;
 	
 	private Map<String, Integer> max_mana; 
 	private Map<String, Integer> mana; 
+	
+	private int taskID;
 	
 	public ManaHandler(Plugin plugin) {
 		this.plugin = plugin;
@@ -48,9 +53,21 @@ public class ManaHandler implements Listener {
 				f.createNewFile();
 			} catch (IOException e) {}
 		}
+		
+		taskID = Bukkit.getScheduler().scheduleSyncRepeatingTask(plugin, new Runnable() {
+			
+			@Override
+			public void run() {
+				for (Player p: Bukkit.getOnlinePlayers()) {
+					addMana(p, 1);
+				}
+			}
+		}, 20L, 20L);
 	}
 
 	public void saveMana() {
+		Bukkit.getScheduler().cancelTask(taskID);
+		
 		File f = new File(plugin.getDataFolder(), "mana.yml");
 		
 		if (f.exists()) {
@@ -84,7 +101,30 @@ public class ManaHandler implements Listener {
 			max_mana.put(p.getName(), 10);
 			mana.put(p.getName(), 10);
 		}
-		
+
+		updateMana(p);
+	}
+	
+	public boolean useSpell(Spell s, Player p) {
+		if (s.getManaCost() <= mana.get(p.getName())) {
+			mana.put(p.getName(), mana.get(p.getName()) + s.getManaCost());
+			updateMana(p);
+			return true;
+		}
+		return false;
+	}
+	
+	public void addMana(Player p, int amount) {
+		mana.put(p.getName(), Math.min(mana.get(p.getName()) + amount, max_mana.get(p.getName())));
+		updateMana(p);
+	}
+	
+	public void addMaximumMana(Player p, int amount) {
+		mana.put(p.getName(), max_mana.get(p.getName()) + amount);
+		updateMana(p);
+	}
+	
+	public void updateMana(Player p) {
 		sendManaBar(p, mana.get(p.getName()), max_mana.get(p.getName()));
 	}
 	

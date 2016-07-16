@@ -22,7 +22,7 @@ public class FireSpell implements Spell{
 
 	@Override
 	public String getLore() {
-		return "Fires a fireball";
+		return "Schieﬂt einen Feuerball";
 	}
 
 	@Override
@@ -42,7 +42,7 @@ public class FireSpell implements Spell{
 
 	@Override
 	public void onRightClick(Player p) {
-		ProjectileUtil.fireProjectile(p, 10, 4, EntityType.FIREBALL, 2.0, 0.0);
+		ProjectileUtil.fireProjectile(p, EntityType.FIREBALL, 2.0, 0.0);
 	}
 	
 }
