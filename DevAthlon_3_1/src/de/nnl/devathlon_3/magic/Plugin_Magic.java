@@ -9,6 +9,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import de.nnl.devathlon_3.mana.ManaHandler;
 import de.nnl.devathlon_3.spellbook.CakeSpell;
+import de.nnl.devathlon_3.spellbook.FireSpell;
 import de.nnl.devathlon_3.spellbook.HealSpell_LV1;
 import de.nnl.devathlon_3.spellbook.LightSpell;
 import de.nnl.devathlon_3.spellbook.SpeedSpell;
@@ -34,6 +35,7 @@ public class Plugin_Magic extends JavaPlugin{
 		spellHandler.addSpell(new HealSpell_LV1());
 		spellHandler.addSpell(new TeleportSpell());
 		spellHandler.addSpell(new TreeSpell());
+		spellHandler.addSpell(new FireSpell());
 		
 		spellListener = new SpellListener(spellHandler);
 		Bukkit.getPluginManager().registerEvents(spellListener, this);
