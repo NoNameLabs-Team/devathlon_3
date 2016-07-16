@@ -75,7 +75,7 @@ public class FelSpell implements Spell{
 						else if(b.getType() == Material.LEAVES || b.getType() == Material.WATER_LILY ||b.getType() == Material.VINE || b.getType() == Material.LEAVES_2)b.setType(Material.HUGE_MUSHROOM_2);
 						else if(b.getType() == Material.STONE) b.setType(Material.COBBLESTONE);
 						else if(b.getType() == Material.LONG_GRASS){
-							switch(Util.RANDOM.nextInt(2)){
+							switch(Util.RANDOM.nextInt(6)){
 							case 0:
 								b.setType(Material.WEB);
 								break;
@@ -83,6 +83,7 @@ public class FelSpell implements Spell{
 								b.setType(Material.FIRE);
 								break;
 							}
+							b.setType(Material.AIR);
 						}
 						else if(b.getType() == Material.SAND || b.getType() == Material.GRAVEL) b.setType(Material.SOUL_SAND);
 						else if(b.getType() == Material.WATER)b.setType(Material.LAVA);
