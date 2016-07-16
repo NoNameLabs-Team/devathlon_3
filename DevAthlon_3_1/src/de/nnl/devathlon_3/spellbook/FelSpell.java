@@ -73,7 +73,7 @@ public class FelSpell implements Spell{
 					if(Util.distance(x, y, z, p.getLocation().getBlockX(), p.getLocation().getBlockY(), p.getLocation().getBlockZ()) <= 6.0 + Util.RANDOM.nextInt(8)){
 						Block b = p.getLocation().getWorld().getBlockAt(x, y, z);
 						
-						p.getWorld().spigot().playEffect(p.getLocation(), Effect.HAPPY_VILLAGER, 1, 0, 0, 0, 0, 2, 10, 2);
+						p.getWorld().spigot().playEffect(b.getLocation(), Effect.HAPPY_VILLAGER, 1, 0, 0, 0, 0, 2, 10, 2);
 						
 						if(b.getType() == Material.GRASS){
 							b.setType(Material.DIRT);
