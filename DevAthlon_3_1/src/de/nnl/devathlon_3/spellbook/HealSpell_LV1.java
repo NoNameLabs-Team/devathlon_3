@@ -28,17 +28,17 @@ public class HealSpell_LV1 implements Spell{
 	
 	@Override
 	public String getName() {
-		return "Light";
+		return "Heal";
 	}
 	
 	@Override
 	public String getLore() {
-		return "Give you light for 100 Seconds";
+		return "Heals you up";
 	}
 	
 	@Override
 	public Material[] getIngredients() {
-		return new Material[] {Material.TORCH, Material.TORCH, Material.POTION, Material.BLAZE_ROD, Material.POTION, Material.GLOWSTONE_DUST, Material.GLOWSTONE_DUST};
+		return new Material[] {Material.GHAST_TEAR, Material.GHAST_TEAR, Material.GOLDEN_CARROT, Material.GOLDEN_APPLE, Material.GOLDEN_CARROT, Material.SPECKLED_MELON, Material.SPECKLED_MELON};
 	}
 	
 	@Override
