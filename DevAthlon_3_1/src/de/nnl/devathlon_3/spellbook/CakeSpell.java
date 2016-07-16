@@ -32,7 +32,7 @@ public class CakeSpell implements Spell{
 	}
 
 	@Override
-	public int getExpCost() {
+	public int getManaCost() {
 		return 0;
 	}
 

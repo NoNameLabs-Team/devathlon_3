@@ -39,7 +39,7 @@ public class SpeedSpell implements Spell{
 	}
 	
 	@Override
-	public int getExpCost() {
+	public int getManaCost() {
 		return 1;
 	}
 	

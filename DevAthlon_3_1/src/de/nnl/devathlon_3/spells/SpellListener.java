@@ -9,6 +9,9 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 
+import de.nnl.devathlon_3.util.RecipeUtil;
+import de.nnl.devathlon_3.util.SpellUtil;
+
 public class SpellListener implements Listener {
 	
 	private SpellHandler spellHandler;
@@ -28,8 +31,8 @@ public class SpellListener implements Listener {
 			if (s != null) {
 				e.setCancelled(true);
 				
-				if (s.getExpCost() <= p.getLevel()) {
-					p.setLevel(p.getLevel() - s.getExpCost());
+				if (s.getManaCost() <= p.getLevel()) {
+					p.setLevel(p.getLevel() - s.getManaCost());
 					
 					if (!s.isReusable()) {
 						if (i.getAmount() == 1) {
@@ -46,6 +49,11 @@ public class SpellListener implements Listener {
 					p.playSound(p.getLocation(), Sound.BLOCK_LAVA_POP, 0.5f, 0.5f);
 				}
 			}
+		}
+		
+		if (i != null && i.getType() == Material.BOOK && i.equals(RecipeUtil.createRecipeBook())) {
+			e.setCancelled(true);
+			p.openInventory(RecipeUtil.createRecipeInventory(spellHandler));
 		}
 	}
 }

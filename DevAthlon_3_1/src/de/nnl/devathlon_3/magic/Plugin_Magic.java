@@ -8,9 +8,12 @@ import org.bukkit.event.HandlerList;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import de.nnl.devathlon_3.spellbook.CakeSpell;
+import de.nnl.devathlon_3.spellbook.HealSpell_LV1;
+import de.nnl.devathlon_3.spellbook.LightSpell;
 import de.nnl.devathlon_3.spellbook.SpeedSpell;
 import de.nnl.devathlon_3.spells.SpellHandler;
 import de.nnl.devathlon_3.spells.SpellListener;
+import de.nnl.devathlon_3.util.RecipeUtil;
 import de.nnl.devathlon_3.util.SpellUtil;
 
 public class Plugin_Magic extends JavaPlugin{
@@ -23,6 +26,8 @@ public class Plugin_Magic extends JavaPlugin{
 
 		spellHandler.addSpell(new CakeSpell());
 		spellHandler.addSpell(new SpeedSpell());
+		spellHandler.addSpell(new LightSpell());
+		spellHandler.addSpell(new HealSpell_LV1());
 		
 		spellListener = new SpellListener(spellHandler);
 		Bukkit.getPluginManager().registerEvents(spellListener, this);
@@ -37,7 +42,7 @@ public class Plugin_Magic extends JavaPlugin{
 			Player p = (Player) sender;
 			
 			if (p.isOp() && commandlabel.equalsIgnoreCase("rezepte")) {
-				p.getInventory().addItem(SpellUtil.createRecipeBook(spellHandler));
+				p.getInventory().addItem(RecipeUtil.createRecipeBook());
 				return true;
 			}
 		}

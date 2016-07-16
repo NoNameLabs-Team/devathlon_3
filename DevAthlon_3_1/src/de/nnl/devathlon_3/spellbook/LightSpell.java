@@ -39,7 +39,7 @@ public class LightSpell implements Spell{
 	}
 	
 	@Override
-	public int getExpCost() {
+	public int getManaCost() {
 		return 2;
 	}
 

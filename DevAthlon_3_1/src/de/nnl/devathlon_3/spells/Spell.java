@@ -13,7 +13,7 @@ public interface Spell {
 	
 	public boolean isReusable();
 	
-	public int getExpCost();
+	public int getManaCost();
 		
 	public void onRightClick(Player p);
 }

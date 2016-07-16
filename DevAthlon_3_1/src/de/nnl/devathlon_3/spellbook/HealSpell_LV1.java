@@ -43,7 +43,7 @@ public class HealSpell_LV1 implements Spell{
 	}
 	
 	@Override
-	public int getExpCost() {
+	public int getManaCost() {
 		return 10;
 	}
 
