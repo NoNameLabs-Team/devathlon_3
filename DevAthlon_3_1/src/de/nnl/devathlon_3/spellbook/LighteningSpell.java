@@ -2,6 +2,7 @@ package de.nnl.devathlon_3.spellbook;
 
 import java.util.HashSet;
 
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.material.MaterialData;
@@ -40,7 +41,9 @@ public class LighteningSpell implements Spell{
 	@SuppressWarnings("deprecation")
 	@Override
 	public boolean onRightClick(Player p) {
-		p.getWorld().spigot().strikeLightning(p.getTargetBlock((HashSet<Byte>)null, 100).getLocation(), false);
+		Location loc = p.getTargetBlock((HashSet<Byte>)null, 100).getLocation();
+		p.getWorld().spigot().strikeLightning(loc, false);
+		p.getWorld().getBlockAt(loc).setType(Material.FIRE);
 		return true;
 	}
 
