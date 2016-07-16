@@ -2,6 +2,7 @@ package de.nnl.devathlon_3.spellbook;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Effect;
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.block.Block;
@@ -74,7 +75,7 @@ public class FelSpell implements Spell{
 						Block b = p.getLocation().getWorld().getBlockAt(x, y, z);
 						
 						if(b.getType() != Material.AIR){
-							p.getWorld().spigot().playEffect(b.getLocation(), Effect.HAPPY_VILLAGER, 1, 0, 0, 0, 0, 2, 10, 2);
+							p.getWorld().spigot().playEffect(new Location(b.getWorld(), b.getLocation().getX(), b.getLocation().getY() + 1, b.getLocation().getZ()), Effect.HAPPY_VILLAGER, 1, 0, 0, 0, 0, 2, 10, 2);
 						
 							if(b.getType() == Material.GRASS){
 								b.setType(Material.DIRT);
