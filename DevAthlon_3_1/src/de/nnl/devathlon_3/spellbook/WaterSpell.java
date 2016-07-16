@@ -45,8 +45,8 @@ public class WaterSpell implements Spell{
 					Block b = p.getLocation().getWorld().getBlockAt(x, y, z);
 					
 					if(b.getType() == Material.FIRE)b.setType(Material.AIR);
-					else if(b.getType() == Material.WATER)b.setType(Material.ICE);
-					else if(b.getType() == Material.LAVA)b.setType(Material.OBSIDIAN);
+					else if(b.getType() == Material.WATER || b.getType() == Material.STATIONARY_WATER)b.setType(Material.ICE);
+					else if(b.getType() == Material.LAVA || b.getType() == Material.STATIONARY_LAVA)b.setType(Material.OBSIDIAN);
 					
 				}
 			}
