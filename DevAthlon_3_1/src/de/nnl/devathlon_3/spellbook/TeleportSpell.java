@@ -36,7 +36,7 @@ public class TeleportSpell implements Spell{
 	
 	@Override
 	public String getLore() {
-		return "Teleportiert dich an die Stelle an die du guckst!";
+		return "Teleports you to the location you are looking at";
 	}
 	
 	@Override

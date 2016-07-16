@@ -22,7 +22,7 @@ public class FireSpell implements Spell{
 
 	@Override
 	public String getLore() {
-		return "Schieﬂt einen Feuerball";
+		return "Shoots a fireball";
 	}
 
 	@Override

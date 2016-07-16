@@ -20,7 +20,7 @@ public class CakeSpell implements Spell{
 
 	@Override
 	public String getLore() {
-		return "The cake is a lie";
+		return "Places a cake on the ground";
 	}
 
 	@Override
