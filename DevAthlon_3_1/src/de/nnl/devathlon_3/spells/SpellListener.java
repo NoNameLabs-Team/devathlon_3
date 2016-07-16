@@ -80,9 +80,9 @@ public class SpellListener implements Listener {
 			}
 			
 			if (item.equals(ItemUtil.createItemStack(Material.GLOWSTONE_DUST, 1, "Next Page"))) {
-				RecipeUtil.applyRecipePageToInventory(spellHandler, currpage - 1, inv);
-			} else if (item.equals(ItemUtil.createItemStack(Material.GLOWSTONE_DUST, 1, "Previous Page"))) {
 				RecipeUtil.applyRecipePageToInventory(spellHandler, currpage + 1, inv);
+			} else if (item.equals(ItemUtil.createItemStack(Material.GLOWSTONE_DUST, 1, "Previous Page"))) {
+				RecipeUtil.applyRecipePageToInventory(spellHandler, currpage - 1, inv);
 			}
 		}
 	}
