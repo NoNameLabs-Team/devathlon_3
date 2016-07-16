@@ -95,7 +95,7 @@ public class TreeSpell implements Spell{
 	@SuppressWarnings("deprecation")
 	@Override
 	public MaterialData[] getIngredients() {
-		return new MaterialData[]{new MaterialData(Material.LEAVES, (byte) 2), new MaterialData(Material.LEASH, (byte) 3), new MaterialData(Material.LOG), new MaterialData(new Dye(DyeColor.BROWN).getItemType()), new MaterialData(Material.LOG_2), new MaterialData(Material.SAPLING, (byte) 1), new MaterialData(Material.SAPLING, (byte) 5)};
+		return new MaterialData[]{new MaterialData(Material.LEAVES, (byte) 2), new MaterialData(Material.LEAVES, (byte) 3), new MaterialData(Material.LOG), new MaterialData(new Dye(DyeColor.BROWN).getItemType()), new MaterialData(Material.LOG_2), new MaterialData(Material.SAPLING, (byte) 1), new MaterialData(Material.SAPLING, (byte) 5)};
 	}
 
 }
